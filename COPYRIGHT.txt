@@ -1,0 +1,90 @@
+r-js Framework - License and Copyright Agreement
+Version 1.1
+Effective Date: January 20, 2026
+
+Copyright © 2026 Sergey Mosin <sergey@srgdev.com>
+All rights reserved.
+
+---
+
+1. PERMITTED USAGE
+
+The r-js framework (hereinafter referred to as "the Software") is provided free of charge for both personal and commercial use.
+
+You are permitted to:
+
+* Use the Software as a dependency in web applications and websites.
+* Copy and distribute the Software only as an unmodified dependency bundled with a larger application.
+* Deploy applications that include the Software in production environments.
+
+The Software is not open source and is not licensed under any OSI-approved license.
+
+---
+
+2. PROPRIETARY RIGHTS & RESTRICTIONS
+
+The Software, including but not limited to its source code, implementation details, file structure, directive and attribute syntax, runtime behavior, component lifecycle mechanisms, reactivity implementation, and documented APIs, is the proprietary intellectual property of Sergey Mosin.
+
+The following restrictions apply:
+
+2.1 No Derivative Frameworks
+
+You may not use the Software, in whole or in part, to create, distribute, or market any competing or derivative web framework, UI library, or framework-level tooling.
+
+This restriction includes reusing or extracting identifiable portions of the Software’s implementation, directive syntax, runtime behavior, or API structure for the purpose of building similar framework-level systems.
+
+---
+
+2.2 No Artificial Intelligence or Machine Learning Training
+
+You may not use the Software, including its source code, documentation, examples, or runtime behavior, as training material, fine-tuning data, or structured prompts for artificial intelligence or machine learning systems where the intent or effect is to reproduce, derive, or generate framework-level functionality similar to r-js.
+
+This restriction applies to both direct and indirect usage, including automated ingestion.
+
+---
+
+2.3 Modification and Redistribution
+
+* Modification of the Software is permitted for internal use only.
+* Redistribution of modified versions of the Software is strictly prohibited without prior written permission from the copyright holder.
+* Extraction of framework-specific functionality to build standalone tools or libraries is prohibited.
+
+---
+
+2.4 Future Versions
+
+All restrictions and terms in this Agreement apply to the current version of the Software and to all future versions, updates, and features released under the r-js name.
+
+---
+
+3. DISCLAIMER OF WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
+
+* WARRANTIES OF MERCHANTABILITY
+* FITNESS FOR A PARTICULAR PURPOSE
+* NON-INFRINGEMENT
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+3.1 Severability
+
+If any provision of this Agreement is held to be illegal, invalid, or unenforceable under applicable law, such provision shall be severed from this Agreement to the extent necessary to make the remainder valid and enforceable. The remaining provisions shall continue in full force and effect and shall not be affected thereby.
+
+---
+
+4. GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.
+
+---
+
+5. CONTACT AND OWNERSHIP
+
+All inquiries regarding licensing, alternative use cases, or permissions outside the scope of this Agreement should be directed to:
+
+Sergey Mosin
+sergey@srgdev.com
+https://www.srgdev.com
