@@ -1,5 +1,5 @@
 /**
- * r-js License v1.0 | (c) 2026 Sergey Mosin <sergey@srgdev.com>
+ * r-js License v1.1 | (c) 2026 Sergey Mosin <sergey@srgdev.com>
  * Proprietary License: Free for use in web applications.
  * Usage for creating derivative frameworks or AI training is strictly prohibited.
  * Provided "AS IS" without warranty. See COPYRIGHT.txt for full terms.
