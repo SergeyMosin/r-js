@@ -60,3 +60,6 @@ export const WRAP = STANDARD_API
 
 export const NO_REFS = STANDARD_API
     ? 'data-no-refs' : 'no-refs'
+
+export const SRC = STANDARD_API
+    ? 'data-src' : 'r-src'

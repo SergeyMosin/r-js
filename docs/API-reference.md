@@ -192,6 +192,18 @@ Extracts state from pre-rendered HTML.
 
 ---
 
+### `data-src` — Image (and other elements) Source
+
+Use `data-src` to set the `src` attribute of an element when the value is **dynamic**. This prevents the browser from attempting to fetch an invalid or empty URL before the data is ready.
+
+```html
+<img data-src="{{imageUrl}}"/>
+```
+
+* Reactivity is automatically transferred to the `src` attribute
+
+---
+
 ### `data-exec` — Execution Hook
 
 ```html

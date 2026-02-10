@@ -74,6 +74,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-r`                | Register DOM element ref on `$r`   | `<div data-r="{{$r.modal}}">…</div>`                                     |
 | `data-no-refs`          | Block access to global `$r` refs   | `<r-comp data-no-refs>`                                                  |
 | `data-h:*`              | Hydrate / extract state from HTML  | `<span data-h.n:text-content="{{count}}">42</span>`                      |
+| `data-src`              | For dynamic `src` values           | `<img data-src="{{imageUrl}}"/>`                                         |
 | `data-exec`             | Execute code before children       | `data-exec="{{status='loading'}}"`                                       |
 | `data-err`              | Error boundary                     | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`               |
 | `data-shadow`           | Enable Shadow DOM for component    | `<r-comp data-shadow>` or `data-shadow="section"`                        |
