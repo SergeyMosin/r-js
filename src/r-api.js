@@ -35,10 +35,10 @@ export const VIEW = STANDARD_API
     ? 'data-v' : 'view'
 
 export const LISTEN = STANDARD_API
-    ? 'data-l:' : '@'
+    ? 'data-l:' : 'on:'
 
 export const LISTEN_ASYNC = STANDARD_API
-    ? 'data-l.async:' : '@async:'
+    ? 'data-l.async:' : 'on.async:'
 
 export const HYDRO = STANDARD_API
     ? 'data-h:' : 'h:'
