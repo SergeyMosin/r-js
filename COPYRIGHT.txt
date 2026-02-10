@@ -35,11 +35,31 @@ This restriction includes reusing or extracting identifiable portions of the Sof
 
 ---
 
-2.2 No Artificial Intelligence or Machine Learning Training
+2.2 Artificial Intelligence or Machine Learning Training and Inference
 
-You may not use the Software, including its source code, documentation, examples, or runtime behavior, as training material, fine-tuning data, or structured prompts for artificial intelligence or machine learning systems where the intent or effect is to reproduce, derive, or generate framework-level functionality similar to r-js.
+You may not use the Software itself, including its source code, internal implementation details, runtime behavior, compiled artifacts, or non-public materials, as training data, fine-tuning data, or evaluation datasets for any artificial intelligence or machine learning system where the intent or effect is to reproduce, derive, or generate framework-level functionality similar to r-js.
 
-This restriction applies to both direct and indirect usage, including automated ingestion.
+Training and Fine-Tuning Restrictions
+
+For the avoidance of doubt, training, fine-tuning, retraining, or model distillation using any part of the Software other than publicly provided documentation and examples is strictly prohibited, whether such use is direct, indirect, automated, or performed at scale.
+
+Permitted AI and IDE Inference Use
+
+Notwithstanding the foregoing, the use of publicly provided documentation and example code only is explicitly permitted for inference-time usage by artificial intelligence systems and IDE-integrated assistants, including but not limited to:
+
+* Code completion and suggestions
+* Documentation search and summarization
+* Interactive developer assistance
+* Static analysis and linting support
+
+provided that:
+
+* Such systems do not ingest, learn from, or retain any portion of the Software’s source code or internal behavior beyond the permitted documentation and examples; and
+* The output does not reconstruct, approximate, or expose the Software’s proprietary implementation, internal APIs, or framework-level mechanisms.
+
+No Derivative Output
+
+AI-generated output must not be used to create, train, or distribute competing or derivative frameworks, libraries, or framework-level tooling derived from r-js.
 
 ---
 
