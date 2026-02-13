@@ -157,9 +157,10 @@ Expressions are evaluated as **plain JavaScript functions**
 <div data-r="{{$r.elm1}}">
 ```
 
-* Registers element on `$r`
+* Registers element proxy on `$r`
 * Scoped per component
 * Local(component) refs **shadow** global ones
+* Advanced: use `this.__raw` to access the non-proxied DOM element
 
 ---
 
@@ -211,7 +212,8 @@ Use `data-src` to set the `src` attribute of an element when the value is **dyna
 ```
 
 * Executes **before children**
-* `this` refers to the DOM element
+* `this` refers to the DOM element Proxy
+* Advanced: use `this.__raw` to access the raw DOM element
 
 #### Async Variant
 
@@ -373,12 +375,12 @@ function kill(state, refs) {}
 
 ## 6. Special Runtime Variables
 
-| Variable | Scope              | Description      |
-| -------- | ------------------ | ---------------- |
-| `$r`     | global / component | refs & utilities |
-| `$evt`   | event              | Native event     |
-| `$err`   | error boundary     | Error object     |
-| `this`   | exec               | DOM element      |
+| Variable | Scope              | Description       |
+| -------- | ------------------ | ----------------- |
+| `$r`     | global / component | refs & utilities  |
+| `$evt`   | event              | Native event      |
+| `$err`   | error boundary     | Error object      |
+| `this`   | exec               | DOM element proxy |
 
 ---
 

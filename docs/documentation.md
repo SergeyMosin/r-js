@@ -63,22 +63,22 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 
 ## 3. Core Directives
 
-| Directive               | Purpose                            | Example                                                                  |
-| ----------------------- | ---------------------------------- | ------------------------------------------------------------------------ |
-| `data-l:event`          | Event listener                     | `data-l:click="{{count++}}"`<br>`data-l:async:click="{{await fetch()}}"` |
-| `data-m`                | Two-way model binding              | `<input data-m="{{message}}">`                                           |
-| `data-if` / `data-else` | Conditional rendering (remove/add) | `<div data-if="{{show}}">…</div><div data-else>…</div>`                  |
-| `data-f`                | List / for-each rendering          | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`          |
-| `data-p:prop`           | Component prop (read-only)         | `<r-card data-p:title="{{post.title}}">`                                 |
-| `data-pm:prop`          | Component prop (read-write)        | `<r-input data-pm:value="{{form.name}}">`                                |
-| `data-r`                | Register DOM element ref on `$r`   | `<div data-r="{{$r.modal}}">…</div>`                                     |
-| `data-no-refs`          | Block access to global `$r` refs   | `<r-comp data-no-refs>`                                                  |
-| `data-h:*`              | Hydrate / extract state from HTML  | `<span data-h.n:text-content="{{count}}">42</span>`                      |
-| `data-src`              | For dynamic `src` values           | `<img data-src="{{imageUrl}}"/>`                                         |
-| `data-exec`             | Execute code before children       | `data-exec="{{status='loading'}}"`                                       |
-| `data-err`              | Error boundary                     | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`               |
-| `data-shadow`           | Enable Shadow DOM for component    | `<r-comp data-shadow>` or `data-shadow="section"`                        |
-| `data-v`                | Render dynamic view object         | `<div data-v="{{currentView}}"></div>`                                   |
+| Directive               | Purpose                                 | Example                                                                  |
+| ----------------------- | --------------------------------------- | ------------------------------------------------------------------------ |
+| `data-l:event`          | Event listener                          | `data-l:click="{{count++}}"`<br>`data-l:async:click="{{await fetch()}}"` |
+| `data-m`                | Two-way model binding                   | `<input data-m="{{message}}">`                                           |
+| `data-if` / `data-else` | Conditional rendering (remove/add)      | `<div data-if="{{show}}">…</div><div data-else>…</div>`                  |
+| `data-f`                | List / for-each rendering               | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`          |
+| `data-p:prop`           | Component prop (read-only)              | `<r-card data-p:title="{{post.title}}">`                                 |
+| `data-pm:prop`          | Component prop (read-write)             | `<r-input data-pm:value="{{form.name}}">`                                |
+| `data-r`                | Register DOM element(proxy) ref on `$r` | `<div data-r="{{$r.modal}}">…</div>`                                     |
+| `data-no-refs`          | Block access to global `$r` refs        | `<r-comp data-no-refs>`                                                  |
+| `data-h:*`              | Hydrate / extract state from HTML       | `<span data-h.n:text-content="{{count}}">42</span>`                      |
+| `data-src`              | For dynamic `src` values                | `<img data-src="{{imageUrl}}"/>`                                         |
+| `data-exec`             | Execute code before children            | `data-exec="{{status='loading'}}"`                                       |
+| `data-err`              | Error boundary                          | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`               |
+| `data-shadow`           | Enable Shadow DOM for component         | `<r-comp data-shadow>` or `data-shadow="section"`                        |
+| `data-v`                | Render dynamic view object              | `<div data-v="{{currentView}}"></div>`                                   |
 
 ### Event Listeners – `data-l:*`
 
