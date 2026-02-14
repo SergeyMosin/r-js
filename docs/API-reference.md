@@ -75,6 +75,18 @@ Expressions are evaluated as **plain JavaScript functions**
 
 ---
 
+### `data-s:*` — Setter for Attributes/Properties
+
+```html
+<button data-s:disabled="{{isDisabled}}">Some Button</button>
+<div data-s:hidden="{{count<10}}">Count is higher than 9</div>
+```
+
+* One-way bind state to Elements's attributes/properties.
+* Useful for setting/toggling boolean attributes
+
+---
+
 ### `data-m` — Model Binding
 
 ```html

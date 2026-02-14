@@ -46,6 +46,9 @@ export const HYDRO = STANDARD_API
 export const HYDRO_CAST = STANDARD_API
     ? 'data-h.' : 'h.'
 
+export const SETTER = STANDARD_API
+    ? 'data-s:' : 's:'
+
 export const PROP_RO = STANDARD_API
     ? 'data-p:' : 'p:'
 

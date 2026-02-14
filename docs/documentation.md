@@ -74,6 +74,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-r`                | Register DOM element(proxy) ref on `$r` | `<div data-r="{{$r.modal}}">…</div>`                                     |
 | `data-no-refs`          | Block access to global `$r` refs        | `<r-comp data-no-refs>`                                                  |
 | `data-h:*`              | Hydrate / extract state from HTML       | `<span data-h.n:text-content="{{count}}">42</span>`                      |
+| `data-s:*`              | Attribute Setter (one-way)              | `<button data-s:disabled="{{isDisabled}}">Some Button</button>`          |
 | `data-src`              | For dynamic `src` values                | `<img data-src="{{imageUrl}}"/>`                                         |
 | `data-exec`             | Execute code before children            | `data-exec="{{status='loading'}}"`                                       |
 | `data-err`              | Error boundary                          | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`               |
@@ -206,7 +207,19 @@ Server-rendered HTML → extract state on client:
 
 Prefixes: `.n` (Number), `.s` (String), `.b` (Boolean)
 
-## 8. Error Boundaries – `data-err`
+## 8. Setters (one-way) – `data-s:*`
+
+Bind state to Elements's attributes/properties.
+
+```html
+<button id="t1" data-s:disabled="{{disabled}}">Some Button</button>
+<div id="t3" data-s:hidden="{{hidden}}">Hidden Div</div>
+<div id="t4" data-s:tab-index="{{num+1}}">Some Other Div</div>
+```
+
+Most useful for setting/toggling boolean attributes like `disabled`, `hidden`, etc.
+
+## 9. Error Boundaries – `data-err`
 
 ```html
 <div data-err="{{error = $err.message}}">
@@ -216,7 +229,7 @@ Prefixes: `.n` (Number), `.s` (String), `.b` (Boolean)
 
 Supports nested boundaries and async (`await` or returned Promise).
 
-## 9. Dynamic Views – `data-v`
+## 10. Dynamic Views – `data-v`
 
 Ideal for lightweight SPA / router views.
 
@@ -234,7 +247,7 @@ state.currentView = {
 
 **Security note**: only use trusted HTML.
 
-## 10. Advanced / Escape Hatches
+## 11. Advanced / Escape Hatches
 
 - `data-exec` / `data-exec.async` – per-element lifecycle
 - `data-no-refs` – isolate component from global refs
