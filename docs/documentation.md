@@ -201,11 +201,11 @@ Server-rendered HTML → extract state on client:
 
 ```html
 <div data-h:text-content="{{title}}">Welcome to r-js</div>
-<div data-h.n:text-content="{{count}}">42</div>
-<div data-h.b:text-content="{{isActive}}">true</div>
+<div data-h.num:text-content="{{count}}">42</div>
+<div data-h.bool:text-content="{{isActive}}">true</div>
 ```
 
-Prefixes: `.n` (Number), `.s` (String), `.b` (Boolean)
+Prefixes: `.num` (Number), `.str` (String), `.bool` (Boolean)
 
 ## 8. Setters (one-way) – `data-s:*`
 

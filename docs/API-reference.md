@@ -195,13 +195,13 @@ Extracts state from pre-rendered HTML.
 <div data-h:text-content="{{text}}">hello</div>
 ```
 
-#### Type Casting Prefixes
+#### Type Casting Modifiers
 
-| Prefix | Type    |
-| ------ | ------- |
-| `.n`   | Number  |
-| `.s`   | String  |
-| `.b`   | Boolean |
+| Modifier | Type    |
+| -------- | ------- |
+| `.num`   | Number  |
+| `.str`   | String  |
+| `.bool`  | Boolean |
 
 ---
 
