@@ -76,20 +76,20 @@
   
 **Other refs:**
 * Error Codes (Production Mode)  - [./src/errors.js](./src/errors.js)
-* Alternative API Synctax - [./src/r-api.js](./src/r-api.js)
+* Alternative API Syntax - [./src/r-api.js](./src/r-api.js)
 
 ---
 
 ### Size
 
-* Around `30KB` minified (depending on build type)
-* Under `12KB` minified + gzipped
+* Around `32KB` minified (depending on build type)
+* ~ `14KB` minified + gzipped
 
 ---
 
 ### Status
 
-**v0.3.6 API Testing (closed beta)**
+**v0.4.0 - API Testing (closed beta)**
 
 Features are almost locked. List "hydration" is the only feature that is not yet implemented/tested.
 

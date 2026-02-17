@@ -31,6 +31,9 @@ export const REF = STANDARD_API
 export const MODEL = STANDARD_API
     ? 'data-m' : 'model'
 
+export const MODEL_CAST = STANDARD_API
+    ? 'data-m.' : 'model.'
+
 export const VIEW = STANDARD_API
     ? 'data-v' : 'view'
 

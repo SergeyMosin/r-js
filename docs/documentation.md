@@ -109,6 +109,16 @@ Array checkbox example:
 <!-- skills = ["js", "css"] when both checked -->
 ```
 
+Modifiers example:
+
+```html
+<input data-m.num.lazy="{{num}}"/>
+<select data-m.num="{{num}}">
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select>
+```
+
 ### Conditional – `data-if` / `data-else`
 
 Elements are **physically removed/inserted** from DOM.

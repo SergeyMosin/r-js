@@ -93,6 +93,7 @@ Expressions are evaluated as **plain JavaScript functions**
 <input data-m="{{text}}">
 <input type="checkbox" data-m="{{flag}}">
 <input type="checkbox" data-m="{{arr[]}}">
+<input data-m.num.lazy="{{num}}"/>
 ```
 
 #### Supported Inputs
@@ -101,6 +102,26 @@ Expressions are evaluated as **plain JavaScript functions**
 * `checkbox` (single / array)
 * `radio`
 * `select` (single / multiple)
+
+#### Model Modifiers
+
+| Modifier | Description                                  | Supported Inputs              |
+| -------- | -------------------------------------------- | ----------------------------- |
+| `.num`   | Cast input value to a number                 | `input`, `textarea`, `select` |
+| `.lazy`  | Bind to `change` event  (instead of `input`) | `input`, `textarea`           |
+
+`.num` modifier is best effort or fail to `0` (except `empty strings`).
+
+| Input Value     | Result     |
+| --------------- | ---------- |
+| `''`            | `''`       |
+| `'0.0'`         | `0`        |
+| `'.5'`          | `0.5`      |
+| `'123.000'`     | `123`      |
+| `'123.0001'`    | `123.0001` |
+| `'000123.0001'` | `123.0001` |
+| `'10px'`        | `0`        |
+| `'abc'`         | `0`        |
 
 ---
 

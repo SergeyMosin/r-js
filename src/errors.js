@@ -62,6 +62,8 @@ export const IM_BAD_INPUT_TYPE = BUILD_PROD ?
     'IM_01' : 'initModel: unsupported input type'
 export const IM_BAD_TAG = BUILD_PROD ?
     'IM_02' : 'initModel: unsupported tag'
+export const IM_BAD_MODIFIER = BUILD_PROD ?
+    'IM_03' : 'initModel: unsupported modifier'
 
 export const IV_INVALID_NAME = BUILD_PROD ?
     'IV_01' : 'initView: only "simple" vars are supported: invalid varName:'
