@@ -132,8 +132,16 @@ Expressions are evaluated as **plain JavaScript functions**
 <div data-else></div>
 ```
 
-* Elements are **removed from the DOM** when false
+* Elements are **removed from the DOM** when `condition` is false
 * `data-else` must be the **next sibling**
+
+#### Scoped/local Props `data-ps:*`
+
+```html
+<div data-if="{{condition}}" data-ps:my-var="initial value">
+  "myVar" is only available inside of this "if" block: {{myVar}}
+</div>
+```
 
 ---
 

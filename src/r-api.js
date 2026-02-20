@@ -58,6 +58,9 @@ export const PROP_RO = STANDARD_API
 export const PROP_RW = STANDARD_API
     ? 'data-pm:' : 'pm:'
 
+export const PROP_SCOPED = STANDARD_API
+    ? 'data-ps:' : 'ps:'
+
 export const SHADOW = STANDARD_API
     ? 'data-shadow' : 'shadow'
 

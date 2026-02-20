@@ -71,6 +71,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-f`                | List / for-each rendering               | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`          |
 | `data-p:prop`           | Component prop (read-only)              | `<r-card data-p:title="{{post.title}}">`                                 |
 | `data-pm:prop`          | Component prop (read-write)             | `<r-input data-pm:value="{{form.name}}">`                                |
+| `data-ps:prop`          | Scoped prop for inline if/else blocks   | `<div data-if={{cond}} data-ps:some-prop="initial value">`               |
 | `data-r`                | Register DOM element(proxy) ref on `$r` | `<div data-r="{{$r.modal}}">…</div>`                                     |
 | `data-no-refs`          | Block access to global `$r` refs        | `<r-comp data-no-refs>`                                                  |
 | `data-h:*`              | Hydrate / extract state from HTML       | `<span data-h.n:text-content="{{count}}">42</span>`                      |
