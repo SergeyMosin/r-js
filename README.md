@@ -89,7 +89,7 @@
 
 ### Status
 
-**v0.4.1 - API Testing (closed beta)**
+**v0.4.2 - API Testing (closed beta)**
 
 Features are almost locked. List "hydration" is the only feature that is not yet implemented/tested.
 

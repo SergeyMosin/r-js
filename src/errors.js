@@ -15,6 +15,9 @@ export const WARN_MISSING_STATE = BUILD_PROD ?
     'W_CGN_01' : 'createGraphNode: missing state for path/prop'
 export const WARN_NO_G_DATA = BUILD_PROD ?
     'W_KT_01' : 'killTemplate: G_DATA not found, possible template initialization error'
+export const WARN_BAD_SCOPED_VALUE = BUILD_PROD ?
+    'W_LT_01' : 'linkInlineTemplate: variables are not allowed in scoped props, skipped:'
+
 
 export const IG_ATTR_NESTED = BUILD_PROD ?
     'IG_01' : 'initGraph: bad attribute, nested {{ detected in :'
