@@ -89,9 +89,13 @@
 
 ### Status
 
-**v0.4.2 - API Testing (closed beta)**
+**v0.4.3 - API Testing (closed beta)**
 
-Features are almost locked. List "hydration" is the only feature that is not yet implemented/tested.
+API and features are nearly finalized.
+
+Outstanding items:
+- List `hydration` not yet implemented or tested.
+- `if` and `for/list` behavior on the same element is undefined.
 
 ---
 

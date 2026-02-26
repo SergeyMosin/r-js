@@ -93,7 +93,9 @@ export const PRX_RO_VAR = BUILD_PROD ?
 export const PRX_RO_METHOD = BUILD_PROD ?
     'PRX_04' : 'read-only proxy(get): use "' + RApi.PROP_RW + '" or events, method not available'
 export const PRX_NO_DELETE = BUILD_PROD ?
-    'PRX_04' : 'read-only proxy(delete): use "' + RApi.PROP_RW + '" or events, delete not allowed on path'
+    'PRX_05' : 'read-only proxy(delete): use "' + RApi.PROP_RW + '" or events, delete not allowed on path'
+export const PRX_RO_DOWN_VAR = BUILD_PROD ?
+    'PRX_06' : 'proxy set: read-only down_var'
 
 export const RNU_KILL_ERROR = BUILD_PROD ?
     'RNU_01' : 'RunnerUtils.killTemplate: LifeCycle.kill error'
