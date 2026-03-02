@@ -82,14 +82,14 @@
 
 ### Size
 
-* Around `32KB` minified (depending on build type)
+* Around `33KB` minified (depending on build type)
 * ~ `14KB` minified + gzipped
 
 ---
 
 ### Status
 
-**v0.4.4 - API Testing (closed beta)**
+**v0.4.5 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
