@@ -126,6 +126,8 @@ export const EX_EXPR_LENGTH = BUILD_PROD ?
 // DO NOT CHANGE THE ERROR MESSAGE (used in tests)
 export const EX_BAD_TEMPLATE = BUILD_PROD ?
     'BAD_TEMPLATE' : 'initTemplate: templates must have exactly one Element child or "' + RApi.WRAP + '" attr'
+export const EX_BAD_TEMPLATE_CHILD = BUILD_PROD ?
+    'BAD_TEMPLATE_CHILD' : 'initTemplate: single "' + RApi.FOR + '" child template must use "' + RApi.WRAP + '" attr'
 export const EX_NULL_CACHE = BUILD_PROD ?
     'NULL_CACHE' : 'applyTemplate: cache is null'
 export const EX_TEMPLATE_NOT_FOUND = BUILD_PROD ?
