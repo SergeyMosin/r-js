@@ -193,7 +193,14 @@ $r.watch("{{expr}}", callback, immediate?)
 $r.watch("{{ [a,b,c] }}", ([a,b,c]) => …, false)
 ```
 
-## 6. Component Lifecycle (inside `<script>` in `<template>`)
+## 6. Special Variable Names
+
+Variable names starting with an `_` (underscore) and are not reactive (excluded from the state object).
+```html
+<div data-f="{{arr.map(_i=>_i+1) => item}}">
+```
+
+## 7. Component Lifecycle (inside `<script>` in `<template>`)
 
 ```js
 function create(state, refs) {
@@ -206,7 +213,7 @@ function kill(state, refs) {
 }
 ```
 
-## 7. Hydration – `(P)RSE` – Pre-Rendered State Extraction
+## 8. Hydration – `(P)RSE` – Pre-Rendered State Extraction
 
 Server-rendered HTML → extract state on client:
 
@@ -218,7 +225,7 @@ Server-rendered HTML → extract state on client:
 
 Prefixes: `.num` (Number), `.str` (String), `.bool` (Boolean)
 
-## 8. Setters (one-way) – `data-s:*`
+## 9. Setters (one-way) – `data-s:*`
 
 Bind state to Elements's attributes/properties.
 
@@ -230,7 +237,7 @@ Bind state to Elements's attributes/properties.
 
 Most useful for setting/toggling boolean attributes like `disabled`, `hidden`, etc.
 
-## 9. Error Boundaries – `data-err`
+## 10. Error Boundaries – `data-err`
 
 ```html
 <div data-err="{{error = $err.message}}">
@@ -240,7 +247,7 @@ Most useful for setting/toggling boolean attributes like `disabled`, `hidden`, e
 
 Supports nested boundaries and async (`await` or returned Promise).
 
-## 10. Dynamic Views – `data-v`
+## 11. Dynamic Views – `data-v`
 
 Ideal for lightweight SPA / router views.
 
@@ -258,7 +265,7 @@ state.currentView = {
 
 **Security note**: only use trusted HTML.
 
-## 11. Advanced / Escape Hatches
+## 12. Advanced / Escape Hatches
 
 - `data-exec` / `data-exec.async` – per-element lifecycle
 - `data-no-refs` – isolate component from global refs

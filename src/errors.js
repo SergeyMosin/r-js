@@ -24,16 +24,16 @@ export const IG_ATTR_NESTED = BUILD_PROD ?
 export const IG_ATTR_UNCLOSED = BUILD_PROD ?
     'IG_02' : 'initGraph: bad attribute, unclosed {{ detected in :'
 
-export const IFR_BAD_ATTR = BUILD_PROD ?
-    'IFR_01' : 'initFor: invalid "' + RApi.FOR + '" attribute'
-export const IFR_BAD_VAR_NAME = BUILD_PROD ?
-    'IFR_02' : 'initFor: invalid indexName or itemName'
-export const IFR_INIT_ERROR = BUILD_PROD ?
-    'IFR_03' : 'initFor: init error'
-export const IFR_CREATE_ERROR = BUILD_PROD ?
-    'IFR_04' : 'initFor: cannot create arrNode'
-export const IFR_BAD_BINDING = BUILD_PROD ?
-    'IFR_05' : 'initFor: only direct bindings are supported on list templates, skipped'
+export const IL_BAD_ATTR = BUILD_PROD ?
+    'IL_01' : 'initList: invalid "' + RApi.FOR + '" attribute'
+export const IL_BAD_VAR_NAME = BUILD_PROD ?
+    'IL_02' : 'initList: invalid indexName or itemName'
+export const IL_INIT_ERROR = BUILD_PROD ?
+    'IL_03' : 'initList: init error'
+export const IL_CREATE_ERROR = BUILD_PROD ?
+    'IL_04' : 'initList: cannot create arrNode'
+export const IL_BAD_BINDING = BUILD_PROD ?
+    'IL_05' : 'initList: only direct bindings are supported on list templates, skipped'
 
 export const ISS_NO_DATA = BUILD_PROD ?
     'ISS_01' : 'setSlot: slotData.graph is null'

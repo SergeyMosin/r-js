@@ -51,10 +51,18 @@ const state = R(rootElement, initialState, (state, $r) => {
 ```html
 {{ expression }}
 ```
-
 Expressions are evaluated as **plain JavaScript functions**
 
 ⚠ **No sanitization is performed**
+
+### Variable Names
+
+Variables whose names begin with an `_`(underscore) are special and **non-reactive** , these variables are **not** looked up in the state object.
+
+```html
+{{ someArray.reduce((_acc, _val) => _acc + _val, 0) }}
+```
+In the example above `_acc` and `_val` are local variables. If params/vars to the `reduce` function were not prefixed with `_`(underscore), this expression would throw an error, because `r-js` would look for the vars in the state object (reactive scope).
 
 ---
 
