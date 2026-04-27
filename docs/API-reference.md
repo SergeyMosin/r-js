@@ -172,6 +172,16 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 * Works on native elements **and components**
 * When used on components, the alias is **auto-injected** into component scope
 
+#### `data-fw.start` & `data-fw.len` — Partial List Rendering (For Window)
+
+```html
+<!-- renders 3 items from the array starting at index 2 -->
+<div data-f="{{arr=>item,index}}" data-fw.start="2" data-fw.len="3">
+  {{index}}. {{item}}
+</div>
+```
+* **IMPORTANT**: Partial rendering is **disabled automatically** if the array has multiple consumers
+
 ---
 
 ### `data-p` — Component Props (Read-Only)

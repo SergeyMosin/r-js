@@ -69,6 +69,8 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-m`                | Two-way model binding                   | `<input data-m="{{message}}">`                                           |
 | `data-if` / `data-else` | Conditional rendering (remove/add)      | `<div data-if="{{show}}">…</div><div data-else>…</div>`                  |
 | `data-f`                | List / for-each rendering               | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`          |
+| `data-fw.start`         | Partial List Rendering (start)          | `<li data-f="{{items => item}}" data-fw.start="2">{{item.name}}</li>`    |
+| `data-fw.len`           | Partial List Rendering (length)         | `<li data-f="{{items => item}}" data-fw.len="3">{{item.name}}</li>`      |
 | `data-p:prop`           | Component prop (read-only)              | `<r-card data-p:title="{{post.title}}">`                                 |
 | `data-pm:prop`          | Component prop (read-write)             | `<r-input data-pm:value="{{form.name}}">`                                |
 | `data-ps:prop`          | Scoped prop for inline if/else blocks   | `<div data-if={{cond}} data-ps:some-prop="initial value">`               |

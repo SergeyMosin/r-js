@@ -17,7 +17,10 @@ export const WARN_NO_G_DATA = BUILD_PROD ?
     'W_KT_01' : 'killTemplate: G_DATA not found, possible template initialization error'
 export const WARN_BAD_SCOPED_VALUE = BUILD_PROD ?
     'W_LT_01' : 'linkInlineTemplate: variables are not allowed in scoped props, skipped:'
-
+export const WARN_MULTIPLE_FW = BUILD_PROD ?
+    'W_IL_01' : 'initList: fw(for window) is already initialized, ignoring new values'
+export const WARN_FW_ABORTED = BUILD_PROD ?
+    'W_DS_01' : 'doSync: fw(for window) not supported on multiple array consumers'
 
 export const IG_ATTR_NESTED = BUILD_PROD ?
     'IG_01' : 'initGraph: bad attribute, nested {{ detected in :'
