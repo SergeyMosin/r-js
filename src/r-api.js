@@ -25,11 +25,14 @@ export const ELSE = STANDARD_API
 export const FOR = STANDARD_API
     ? 'data-f' : 'f'
 
-export const FW_START = STANDARD_API
-    ? 'data-fw.start' : 'fw.start'
+export const FOR_START = STANDARD_API
+    ? 'data-f.start' : 'f.start'
 
-export const FW_LEN = STANDARD_API
-    ? 'data-fw.len' : 'fw.len'
+export const FOR_LEN = STANDARD_API
+    ? 'data-f.len' : 'f.len'
+
+export const FOR_FILTER = STANDARD_API
+    ? 'data-f.filter' : 'f.filter'
 
 export const REF = STANDARD_API
     ? 'data-r' : 'ref'

@@ -172,15 +172,22 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 * Works on native elements **and components**
 * When used on components, the alias is **auto-injected** into component scope
 
-#### `data-fw.start` & `data-fw.len` — Partial List Rendering (For Window)
+#### `data-f.start` & `data-f.len` — Partial List Rendering (fast index filter)
 
 ```html
 <!-- renders 3 items from the array starting at index 2 -->
-<div data-f="{{arr=>item,index}}" data-fw.start="2" data-fw.len="3">
+<div data-f="{{arr=>item,index}}" data-f.start="2" data-f.len="3">
   {{index}}. {{item}}
 </div>
 ```
-* **IMPORTANT**: Partial rendering is **disabled automatically** if the array has multiple consumers
+
+#### `data-f.filter` — Partial List Rendering (filter function)
+```html
+<!-- renders items from the array where the filter function returns true -->
+<div data-f="{{arr=>item,index}}" data-f.filter="{{['a', 'f', 'c'].includes(item.some.prop)}}">
+  {{index}}. {{item.some.prop}}
+</div>
+```
 
 ---
 

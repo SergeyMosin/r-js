@@ -44,6 +44,7 @@
 - Event listeners `data-l:click`, `data-l:keyup`, etc.
 - Conditional rendering `data-if` / `data-else`
 - List rendering `data-f` (with automatic updates on array mutation)
+- List filtering `data-f.start` / `data-f.len` / `data-f.filter`
 - Lightweight components via `<template id="…">` + `<r-…>`
 - Read-only `data-p:` and two-way `data-pm:` props
 - Component events via `$r.emit()`
@@ -89,7 +90,7 @@
 
 ### Status
 
-**v0.5.1 - API Testing (closed beta)**
+**v0.6.0 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
