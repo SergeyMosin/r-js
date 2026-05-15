@@ -34,6 +34,9 @@ export const FOR_LEN = STANDARD_API
 export const FOR_FILTER = STANDARD_API
     ? 'data-f.filter' : 'f.filter'
 
+export const FOR_NO_FUZZ = STANDARD_API
+    ? 'data-no-fuzz' : 'no-fuzz'
+
 export const REF = STANDARD_API
     ? 'data-r' : 'ref'
 
