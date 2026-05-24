@@ -19,6 +19,9 @@ export const EXEC_ASYNC = STANDARD_API
 export const IF = STANDARD_API
     ? 'data-if' : 'if'
 
+export const ELIF = STANDARD_API
+    ? 'data-elif' : 'elif'
+
 export const ELSE = STANDARD_API
     ? 'data-else' : 'else'
 

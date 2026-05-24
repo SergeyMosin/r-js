@@ -42,7 +42,7 @@
 - `{{ expression }}` text interpolation (plain JS)
 - Two-way binding with `data-m`
 - Event listeners `data-l:click`, `data-l:keyup`, etc.
-- Conditional rendering `data-if` / `data-else`
+- Conditional rendering `data-if` /`data-elif`/`data-else`
 - List rendering `data-f` (with automatic updates on array mutation)
 - List filtering `data-f.start` / `data-f.len` / `data-f.filter`
 - Lightweight components via `<template id="…">` + `<r-…>`
@@ -83,14 +83,14 @@
 
 ### Size
 
-* Around `33KB` minified (depending on build type)
+* Around `37KB` minified (depending on build type)
 * ~ `14KB` minified + gzipped
 
 ---
 
 ### Status
 
-**v0.6.0 - API Testing (closed beta)**
+**v0.7.0 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
