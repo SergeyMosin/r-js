@@ -133,15 +133,16 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 
 ---
 
-### `data-if` / `data-else` — Conditional Rendering
+### `data-if` / `data-elif` / `data-else` — Conditional Rendering
 
 ```html
 <div data-if="{{condition}}"></div>
+<div data-elif="{{otherCondition}}"></div>
 <div data-else></div>
 ```
 
 * Elements are **removed from the DOM** when `condition` is false
-* `data-else` must be the **next sibling**
+* `data-else` / `data-elif` must be **next siblings**
 
 #### Scoped/local Props `data-ps:*`
 

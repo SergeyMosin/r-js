@@ -79,6 +79,9 @@ export const PROP_SCOPED = STANDARD_API
 export const SHADOW = STANDARD_API
     ? 'data-shadow' : 'shadow'
 
+export const CAN_RECURSE = STANDARD_API
+    ? 'data-can-recurse' : 'can-recurse'
+
 export const WRAP = STANDARD_API
     ? 'data-wrap' : 'wrap'
 
