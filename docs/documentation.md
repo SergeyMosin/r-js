@@ -77,7 +77,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-can-recurse` | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
 | `data-p:prop`      | Component prop (read-only)               | `<r-card data-p:title="{{post.title}}">`                                   |
 | `data-pm:prop`     | Component prop (read-write)              | `<r-input data-pm:value="{{form.name}}">`                                  |
-| `data-ps:prop`     | Scoped prop for inline if/else blocks    | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
+| `data-ps:prop`     | Scoped prop initializer (one-shot)       | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
 | `data-r`           | Register DOM element(proxy) ref on `$r`  | `<div data-r="{{$r.modal}}">…</div>`                                       |
 | `data-no-refs`     | Block access to global `$r` refs         | `<r-comp data-no-refs>`                                                    |
 | `data-h:*`         | Hydrate / extract state from HTML        | `<span data-h.n:text-content="{{count}}">42</span>`                        |
@@ -210,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 - Default props on `<template>` → `data-p:level="beginner"`
 - Single `<slot>` supported (default content works)
 - Props: `data-p:` (read-only / deep lock), `data-pm:` (two-way, single variable only)
+- Scoped prop initializer: `data-ps:` (one-shot, non-reactive in parent scope after initialization)
 - Events: `$r.emit("save", payload, bubbles?)`
 - Catch: `data-l:save="{{savedData = $evt.detail}}"`
 - Recursion can be enabled with `data-can-recurse`
