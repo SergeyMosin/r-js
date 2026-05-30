@@ -96,7 +96,6 @@ API and features are nearly finalized.
 
 Outstanding items:
 - List `hydration` not yet implemented or tested.
-- `if` and `for/list` behavior on the same element is undefined.
 
 ---
 
@@ -129,6 +128,6 @@ See COPYRIGHT.txt for full legal restrictions.
 
 ### Ownership
 
-**© Sergey Mosin** | <srgey@srgdev.com> | www.srgdev.com
+**© Sergey Mosin** | <sergey@srgdev.com> | www.srgdev.com
 
 All rights reserved.

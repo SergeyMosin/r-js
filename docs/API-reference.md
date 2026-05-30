@@ -172,6 +172,7 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 * Array mutations are reactive
 * Works on native elements **and components**
 * When used on components, the alias is **auto-injected** into component scope
+* If `data-if` is used on the same element, it is evaluated **before** `data-f`
 
 #### `data-f.start` & `data-f.len` — Partial List Rendering (fast index filter)
 
