@@ -63,30 +63,31 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 
 ## 3. Core Directives
 
-| Directive          | Purpose                                  | Example                                                                    |
-| ------------------ | ---------------------------------------- | -------------------------------------------------------------------------- |
-| `data-l:event`     | Event listener                           | `data-l:click="{{count++}}"`<br>`data-l:async:click="{{await fetch()}}"`   |
-| `data-m`           | Two-way model binding                    | `<input data-m="{{message}}">`                                             |
-| `data-if`          | Conditional rendering (if)               | `<div data-if="{{show}}">…</div>`                                          |
-| `data-elif`        | Conditional rendering (else if)          | `<div data-elif="{{someVar===123}}">…</div>`                               |
-| `data-else`        | Conditional rendering (else)             | `<div data-else>…</div>`                                                   |
-| `data-f`           | List / for-each rendering                | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`            |
-| `data-f.start`     | Partial List Rendering (start)           | `<li data-f="{{items => item}}" data-f.start="2">{{item.name}}</li>`       |
-| `data-f.len`       | Partial List Rendering (length)          | `<li data-f="{{items => item}}" data-f.len="3">{{item.name}}</li>`         |
-| `data-f.filter`    | Partial List Rendering (filter function) | `<li data-f="{{arr => ltr}}" data-f.filter="{{ltr!==='a'}}">{{ltr}}</li>`  |
-| `data-can-recurse` | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
-| `data-p:prop`      | Component prop (read-only)               | `<r-card data-p:title="{{post.title}}">`                                   |
-| `data-pm:prop`     | Component prop (read-write)              | `<r-input data-pm:value="{{form.name}}">`                                  |
-| `data-ps:prop`     | Scoped prop initializer (one-shot)       | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
-| `data-r`           | Register DOM element(proxy) ref on `$r`  | `<div data-r="{{$r.modal}}">…</div>`                                       |
-| `data-no-refs`     | Block access to global `$r` refs         | `<r-comp data-no-refs>`                                                    |
-| `data-h:*`         | Hydrate / extract state from HTML        | `<span data-h.n:text-content="{{count}}">42</span>`                        |
-| `data-s:*`         | Attribute Setter (one-way)               | `<button data-s:disabled="{{isDisabled}}">Some Button</button>`            |
-| `data-src`         | For dynamic `src` values                 | `<img data-src="{{imageUrl}}"/>`                                           |
-| `data-exec`        | Execute code before children             | `data-exec="{{status='loading'}}"`                                         |
-| `data-err`         | Error boundary                           | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`                 |
-| `data-shadow`      | Enable Shadow DOM for component          | `<r-comp data-shadow>` or `data-shadow="section"`                          |
-| `data-v`           | Render dynamic view object               | `<div data-v="{{currentView}}"></div>`                                     |
+| Directive              | Purpose                                  | Example                                                                    |
+| ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
+| `data-l:event`         | Event listener                           | `data-l:click="{{count++}}"`<br>`data-l:async:click="{{await fetch()}}"`   |
+| `data-m`               | Two-way model binding                    | `<input data-m="{{message}}">`                                             |
+| `data-if`              | Conditional rendering (if)               | `<div data-if="{{show}}">…</div>`                                          |
+| `data-elif`            | Conditional rendering (else if)          | `<div data-elif="{{someVar===123}}">…</div>`                               |
+| `data-else`            | Conditional rendering (else)             | `<div data-else>…</div>`                                                   |
+| `data-f`               | List / for-each rendering                | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`            |
+| `data-f.start`         | Partial List rendering (start)           | `<li data-f="{{items => item}}" data-f.start="2">{{item.name}}</li>`       |
+| `data-f.len`           | Partial List rendering (length)          | `<li data-f="{{items => item}}" data-f.len="3">{{item.name}}</li>`         |
+| `data-f.filter`        | Partial List rendering (filter function) | `<li data-f="{{arr => ltr}}" data-f.filter="{{ltr!==='a'}}">{{ltr}}</li>`  |
+| `data-f.no-pre-filter` | Advanced List rendering tuning           | `<li data-f="{{arr => ltr}}" data-f.no-pre-filter>{{ltr}}</li>`            |
+| `data-can-recurse`     | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
+| `data-p:prop`          | Component prop (read-only)               | `<r-card data-p:title="{{post.title}}">`                                   |
+| `data-pm:prop`         | Component prop (read-write)              | `<r-input data-pm:value="{{form.name}}">`                                  |
+| `data-ps:prop`         | Scoped prop initializer (one-shot)       | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
+| `data-r`               | Register DOM element(proxy) ref on `$r`  | `<div data-r="{{$r.modal}}">…</div>`                                       |
+| `data-no-refs`         | Block access to global `$r` refs         | `<r-comp data-no-refs>`                                                    |
+| `data-h:*`             | Hydrate / extract state from HTML        | `<span data-h.n:text-content="{{count}}">42</span>`                        |
+| `data-s:*`             | Attribute Setter (one-way)               | `<button data-s:disabled="{{isDisabled}}">Some Button</button>`            |
+| `data-src`             | For dynamic `src` values                 | `<img data-src="{{imageUrl}}"/>`                                           |
+| `data-exec`            | Execute code before children             | `data-exec="{{status='loading'}}"`                                         |
+| `data-err`             | Error boundary                           | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`                 |
+| `data-shadow`          | Enable Shadow DOM for component          | `<r-comp data-shadow>` or `data-shadow="section"`                          |
+| `data-v`               | Render dynamic view object               | `<div data-v="{{currentView}}"></div>`                                     |
 
 ### Event Listeners – `data-l:*`
 
@@ -311,6 +312,7 @@ state.currentView = {
 - `data-exec` / `data-exec.async` – per-element lifecycle
 - `data-no-refs` – isolate component from global refs
 - `data-can-recurse` – disable template recursion check, useful for tree-like structures rendering
+- `data-f.no-pre-filter` – when using recursive templates on the same variable, filter pre-optimizations can interfere with recursion - this option disables them
 - `$r.watch(…)` for side-effects & computed-like logic
 - Deep state mutations are fully supported
 
