@@ -412,14 +412,30 @@ $r.watch("{{someVar}}", v => {
 
 ## 6. Component Lifecycle API
 
-Defined inside `<template><script></script>`.
+Defined inside `<template><script>...</script></template>`.
+
+### `init(refs)`
+
+Called **once** when a `<template id="some-comp">...</template>` is parsed.
+
+```js
+function init($r) {
+  $r.num = 123
+}
+```
+
+* Mostly used for `$r` initialization.
+
+---
 
 ### `create(state, refs)`
 
 Called **before DOM insertion**.
 
 ```js
-function create(state, refs) {}
+function create(state, $r) {
+  $r.sum = (n) => state.num + n
+}
 ```
 
 * Modify props
@@ -433,7 +449,7 @@ function create(state, refs) {}
 Called on **DOM removal**.
 
 ```js
-function kill(state, refs) {}
+function kill(state, $r) {}
 ```
 
 * Cleanup
