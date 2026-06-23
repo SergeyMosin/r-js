@@ -12,7 +12,7 @@ const BUILD_PROD = typeof _BUILD_PROD !== 'undefined'
 export const WARN_SKIP_TEMPLATE = BUILD_PROD ?
     'W_IG_01' : 'initGraph: template has "shadowrootmode" or no "id" attribute, skipped:'
 export const WARN_MISSING_STATE = BUILD_PROD ?
-    'W_CGN_01' : 'createGraphNode: missing state for path/prop'
+    'W_GW_01' : 'missing state for path/prop:'
 export const WARN_NO_G_DATA = BUILD_PROD ?
     'W_KT_01' : 'killTemplate: G_DATA not found, possible template initialization error'
 
