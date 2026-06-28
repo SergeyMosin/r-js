@@ -90,7 +90,7 @@
 
 ### Status
 
-**v0.8.3 - API Testing (closed beta)**
+**v0.8.4 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
