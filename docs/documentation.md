@@ -307,7 +307,9 @@ state.currentView = {
 
 **Security note**: only use trusted HTML.
 
-## 12. Advanced / Escape Hatches
+## 12. Advanced
+
+### Escape Hatches
 
 - `data-exec` / `data-exec.async` – per-element lifecycle
 - `data-no-refs` – isolate component from global refs
@@ -315,6 +317,29 @@ state.currentView = {
 - `data-f.no-pre-filter` – when using recursive templates on the same variable, filter pre-optimizations can interfere with recursion - this option disables them
 - `$r.watch(…)` for side-effects & computed-like logic
 - Deep state mutations are fully supported
+
+### Module Imports (in templates/components)
+
+Scripts of `type="module"` are supported inside templates and views
+
+```html
+<template id="my-component" data-wrap="div">
+  <script type="module">
+    import * as external from '@/module.js'
+    // or import * as external from 'https://domain.tld/module.js'
+    // or using import maps: import * as external from 'my-module'
+    export function create(state, $r) {
+      state.num = external.num
+    }
+  </script>
+  <div>num: {{num}}</div>
+</template>
+
+<r-my-component></r-my-component>
+```
+
+- the `@` prefix is automatically resolved to `self.location.origin` (when import maps are not used)
+
 
 ## Security & Responsibility
 

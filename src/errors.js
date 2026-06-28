@@ -107,7 +107,7 @@ export const TPL_NO_ANCHOR = BUILD_PROD ?
     'TPL_02' : 'applyTemplate: inline template: anchor is not defined'
 // DO NOT CHANGE THE MESSAGE - it is used in the tests
 export const TPL_RECURSION = BUILD_PROD ?
-    'TPL_03' : 'applyTemplate: infinite template recursion detected, templateId:'
+    'TPL_03' : 'parseRElm: infinite template recursion detected, templateId:'
 
 export const GEN_SCRIPT_COUNT = BUILD_PROD ?
     'GEN_01' : 'template has more than one script tag, templateId:'
@@ -120,6 +120,8 @@ export const EX_NO_NODE = BUILD_PROD ?
     'NO_NODE' : 'List.doSync: nodeForValue is undefined, indexOfNodeForValue:'
 export const EX_EXPR_LENGTH = BUILD_PROD ?
     'EXPR_LENGTH' : 'expression is too long (max length: 512)'
+export const EX_EXPR_INVALID = BUILD_PROD ?
+    'EXPR_INVALID' : 'invalid expression: string or regex not terminated'
 // DO NOT CHANGE THE ERROR MESSAGE (used in tests)
 export const EX_BAD_TEMPLATE = BUILD_PROD ?
     'BAD_TEMPLATE' : 'initTemplate: templates must have exactly one Element child or "' + RApi.WRAP + '" attr'
