@@ -233,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
 $r.emit(name, payload?, bubbles?)
 $r.watch("{{expr}}", callback, immediate?)
 $r.watch("{{ [a,b,c] }}", ([a,b,c]) => …, false)
+$r.unwatch("{{expr}}", callback)
 ```
 
 ## 6. Special Variable Names
@@ -315,7 +316,7 @@ state.currentView = {
 - `data-no-refs` – isolate component from global refs
 - `data-can-recurse` – disable template recursion check, useful for tree-like structures rendering
 - `data-f.no-pre-filter` – when using recursive templates on the same variable, filter pre-optimizations can interfere with recursion - this option disables them
-- `$r.watch(…)` for side-effects & computed-like logic
+- `$r.watch(…)` for side-effects & computed-like logic (`$r.unwatch(…)` to stop watching)
 - Deep state mutations are fully supported
 
 ### Module Imports (in templates/components)

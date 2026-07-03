@@ -389,7 +389,7 @@ $r.emit('event-name', data, true)
 
 ---
 
-#### `$r.watch(expr, callback, immediate=true)`
+#### `$r.watch(expr, callback, immediate=true):boolean`
 
 ```js
 $r.watch("{{someVar}}", v => {
@@ -399,6 +399,16 @@ $r.watch("{{someVar}}", v => {
 
 * Use array `{{ [a, b] }}` for watching multiple vars
 * Component-scoped watchers auto-cleanup on destroy
+* Returns `true` if watch was added, `false` if the expression is invalid or already watched
+
+---
+
+#### `$r.unwatch(expr, callback):boolean`
+
+```js
+const watchRemoved = $r.unwatch("{{someVar}}", someCallback)
+```
+* Returns `true` if un-watch was successful, `false` if couldn't find the watch or the watch was already removed
 
 ---
 
