@@ -191,6 +191,14 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 </div>
 ```
 
+#### `data-f.key` — use an item's prop(key) for equality check
+```html
+<!-- ex: arr=[{id:1,value:'a'},{id:2,value:'b'},{id:3,value:'c'}] -->
+<div data-f="{{arr=>item}}" data-f.key="id">
+  {{item.value}}
+</div>
+```
+
 ---
 
 ### `data-pr` — Component Props (Read-Only)

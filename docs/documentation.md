@@ -74,6 +74,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-f.start`         | Partial List rendering (start)           | `<li data-f="{{items => item}}" data-f.start="2">{{item.name}}</li>`       |
 | `data-f.len`           | Partial List rendering (length)          | `<li data-f="{{items => item}}" data-f.len="3">{{item.name}}</li>`         |
 | `data-f.filter`        | Partial List rendering (filter function) | `<li data-f="{{arr => ltr}}" data-f.filter="{{ltr!==='a'}}">{{ltr}}</li>`  |
+| `data-f.key`           | List item equality checks                | `<li data-f="{{arr => item}}" data-f.key="prop">{{item}}</li>`             |
 | `data-f.no-pre-filter` | Advanced List rendering tuning           | `<li data-f="{{arr => ltr}}" data-f.no-pre-filter>{{ltr}}</li>`            |
 | `data-can-recurse`     | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
 | `data-p:prop`          | Component prop (read-write)              | `<r-input data-p:value="{{form.name}}">`                                   |

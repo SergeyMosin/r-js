@@ -28,6 +28,9 @@ export const ELSE = STANDARD_API
 export const FOR = STANDARD_API
     ? 'data-f' : 'f'
 
+export const FOR_KEY = STANDARD_API
+    ? 'data-f.key' : 'f.key'
+
 export const FOR_START = STANDARD_API
     ? 'data-f.start' : 'f.start'
 
