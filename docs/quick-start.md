@@ -141,7 +141,7 @@ Arrays are fully reactive.
   <button data-l:click="{{count++}}">+</button>
 </template>
 
-<r-counter data-pm:count="{{count}}"></r-counter>
+<r-counter data-p:count="{{count}}"></r-counter>
 ```
 
 * Templates are plain HTML

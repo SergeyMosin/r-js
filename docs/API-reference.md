@@ -193,10 +193,10 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 
 ---
 
-### `data-p` — Component Props (Read-Only)
+### `data-pr` — Component Props (Read-Only)
 
 ```html
-<r-comp data-p:text="{{text}}">
+<r-comp data-pr:text="{{text}}">
 ```
 
 * Props are **locked**
@@ -205,10 +205,10 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 
 ---
 
-### `data-pm` — Component Props (Read-Write)
+### `data-p` — Component Props (Read-Write)
 
 ```html
-<r-comp data-pm:text="{{text}}">
+<r-comp data-p:text="{{text}}">
 ```
 
 #### Rules
@@ -423,20 +423,6 @@ const watchRemoved = $r.unwatch("{{someVar}}", someCallback)
 ## 6. Component Lifecycle API
 
 Defined inside `<template><script>...</script></template>`.
-
-### `init(refs)`
-
-Called **once** when a `<template id="some-comp">...</template>` is parsed.
-
-```js
-function init($r) {
-  $r.num = 123
-}
-```
-
-* Mostly used for `$r` initialization.
-
----
 
 ### `create(state, refs)`
 

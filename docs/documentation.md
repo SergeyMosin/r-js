@@ -76,10 +76,10 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-f.filter`        | Partial List rendering (filter function) | `<li data-f="{{arr => ltr}}" data-f.filter="{{ltr!==='a'}}">{{ltr}}</li>`  |
 | `data-f.no-pre-filter` | Advanced List rendering tuning           | `<li data-f="{{arr => ltr}}" data-f.no-pre-filter>{{ltr}}</li>`            |
 | `data-can-recurse`     | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
-| `data-p:prop`          | Component prop (read-only)               | `<r-card data-p:title="{{post.title}}">`                                   |
-| `data-pm:prop`         | Component prop (read-write)              | `<r-input data-pm:value="{{form.name}}">`                                  |
+| `data-p:prop`          | Component prop (read-write)              | `<r-input data-p:value="{{form.name}}">`                                   |
+| `data-pr:prop`         | Component prop (read-only)               | `<r-card data-pr:title="{{post.title}}">`                                  |
 | `data-ps:prop`         | Scoped prop initializer (one-shot)       | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
-| `data-r`               | Register DOM element(proxy) ref on `$r`  | `<div data-r="{{$r.modal}}">…</div>`                                       |
+| `data-r`               | Register DOM element ref on `$r`         | `<div data-r="{{$r.modal}}">…</div>`                                       |
 | `data-no-refs`         | Block access to global `$r` refs         | `<r-comp data-no-refs>`                                                    |
 | `data-h:*`             | Hydrate / extract state from HTML        | `<span data-h.n:text-content="{{count}}">42</span>`                        |
 | `data-s:*`             | Attribute Setter (one-way)               | `<button data-s:disabled="{{isDisabled}}">Some Button</button>`            |
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 - Multiple root nodes → use `data-wrap="div"` (or any tag)
 - Default props on `<template>` → `data-p:level="beginner"`
 - Single `<slot>` supported (default content works)
-- Props: `data-p:` (read-only / deep lock), `data-pm:` (two-way, single variable only)
+- Props: `data-pr:` (read-only / deep lock), `data-p:` (two-way, single variable only)
 - Scoped prop initializer: `data-ps:` (one-shot, non-reactive in parent scope after initialization)
 - Events: `$r.emit("save", payload, bubbles?)`
 - Catch: `data-l:save="{{savedData = $evt.detail}}"`
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
 **Shadow DOM support**
 
 ```html
-<r-card data-shadow data-p:title="{{post.title}}"></r-card>
+<r-card data-shadow data-pr:title="{{post.title}}"></r-card>
 <r-card data-shadow="article|border:1px solid #ccc" …></r-card>
 ```
 

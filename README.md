@@ -46,7 +46,7 @@
 - List rendering `data-f` (with automatic updates on array mutation)
 - List filtering `data-f.start` / `data-f.len` / `data-f.filter`
 - Lightweight components via `<template id="…">` + `<r-…>`
-- Read-only `data-p:` and two-way `data-pm:` props
+- Read-only `data-pr:` and two-way `data-p:` props
 - Component events via `$r.emit()`
 - Shadow DOM support per component
 - Error boundaries `data-err`
@@ -90,7 +90,7 @@
 
 ### Status
 
-**v0.8.6 - API Testing (closed beta)**
+**v0.8.7 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
