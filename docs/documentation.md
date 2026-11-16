@@ -73,9 +73,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-f`               | List / for-each rendering                | `<li data-f="{{items => item, i}}">{{i+1}}. {{item.name}}</li>`            |
 | `data-f.start`         | Partial List rendering (start)           | `<li data-f="{{items => item}}" data-f.start="2">{{item.name}}</li>`       |
 | `data-f.len`           | Partial List rendering (length)          | `<li data-f="{{items => item}}" data-f.len="3">{{item.name}}</li>`         |
-| `data-f.filter`        | Partial List rendering (filter function) | `<li data-f="{{arr => ltr}}" data-f.filter="{{ltr!==='a'}}">{{ltr}}</li>`  |
 | `data-f.key`           | List item equality checks                | `<li data-f="{{arr => item}}" data-f.key="prop">{{item}}</li>`             |
-| `data-f.no-pre-filter` | Advanced List rendering tuning           | `<li data-f="{{arr => ltr}}" data-f.no-pre-filter>{{ltr}}</li>`            |
 | `data-can-recurse`     | Disable template recursion check         | `<r-item data-f="{{item.children => item}}" data-can-recurse>...</r-item>` |
 | `data-p:prop`          | Component prop (read-write)              | `<r-input data-p:value="{{form.name}}">`                                   |
 | `data-pr:prop`         | Component prop (read-only)               | `<r-card data-pr:title="{{post.title}}">`                                  |
@@ -233,8 +231,10 @@ document.addEventListener("DOMContentLoaded", () => {
 ```js
 $r.emit(name, payload?, bubbles?)
 $r.watch("{{expr}}", callback, immediate?)
-$r.watch("{{ [a,b,c] }}", ([a,b,c]) => …, false)
 $r.unwatch("{{expr}}", callback)
+$r.attach(templateId, anchorElement, state, readyCallback?)
+$r.detach(templateId)
+$r.updateView($r.viewElement, html, state?, readOnly?, readyCallback?):stateProxy
 ```
 
 ## 6. Special Variable Names
@@ -295,16 +295,9 @@ Supports nested boundaries and async (`await` or returned Promise).
 
 Ideal for lightweight SPA / router views.
 
-```js
-state.currentView = {
-  html: `<h1>{{title}}</h1><p>{{body}}</p>`,
-  state: { title: "Home", body: "…" },
-  readOnly: false           // or true
-};
-```
-
 ```html
-<main data-v="{{currentView}}"></main>
+<main data-v="{{$r.currentView}}"></main>
+<button data-l.click="{{$r.updateView($r.currentView,'Some <b>HTML</b> and {{someVar}}',{someVar:'CSS'})}}">Update View</button>
 ```
 
 **Security note**: only use trusted HTML.
@@ -316,7 +309,6 @@ state.currentView = {
 - `data-exec` / `data-exec.async` – per-element lifecycle
 - `data-no-refs` – isolate component from global refs
 - `data-can-recurse` – disable template recursion check, useful for tree-like structures rendering
-- `data-f.no-pre-filter` – when using recursive templates on the same variable, filter pre-optimizations can interfere with recursion - this option disables them
 - `$r.watch(…)` for side-effects & computed-like logic (`$r.unwatch(…)` to stop watching)
 - Deep state mutations are fully supported
 

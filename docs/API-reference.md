@@ -183,14 +183,6 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 </div>
 ```
 
-#### `data-f.filter` — Partial List Rendering (filter function)
-```html
-<!-- renders items from the array where the filter function returns true -->
-<div data-f="{{arr=>item,index}}" data-f.filter="{{['a', 'f', 'c'].includes(item.some.prop)}}">
-  {{index}}. {{item.some.prop}}
-</div>
-```
-
 #### `data-f.key` — use an item's prop(key) for equality check
 ```html
 <!-- ex: arr=[{id:1,value:'a'},{id:2,value:'b'},{id:3,value:'c'}] -->

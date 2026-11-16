@@ -44,14 +44,15 @@
 - Event listeners `data-l:click`, `data-l:keyup`, etc.
 - Conditional rendering `data-if` /`data-elif`/`data-else`
 - List rendering `data-f` (with automatic updates on array mutation)
-- List filtering `data-f.start` / `data-f.len` / `data-f.filter`
+- Partial list rendering `data-f.start` / `data-f.len`
 - Lightweight components via `<template id="…">` + `<r-…>`
 - Read-only `data-pr:` and two-way `data-p:` props
 - Component events via `$r.emit()`
 - Shadow DOM support per component
 - Error boundaries `data-err`
-- Dynamic views `data-v`
+- Dynamic views `data-v` + `$r.updateView($$.view, html, state)`
 - `$r` global + scoped refs & utilities
+- Singleton(reusable) components via `$r.attach()/$r.detach()`
 - `data-exec` / `data-exec.async` per-element hooks
 - Component lifecycle: `create()` / `kill()`
 - SSR friendly hydration from pre-rendered HTML (`data-h:*`)
@@ -83,14 +84,14 @@
 
 ### Size
 
-* Around `42KB` minified (depending on build type)
+* Around `40KB` minified (depending on build type)
 * ~ `16KB` minified + gzipped
 
 ---
 
 ### Status
 
-**v0.9.6 - API Testing (closed beta)**
+**v0.10.0 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 

@@ -36,11 +36,13 @@ export const ISS_NO_DATA = BUILD_PROD ?
     'ISS_01' : 'setSlot: slotData.graph is null'
 
 export const ATR_BIND_NO_NODE = BUILD_PROD ?
-    'ATR_01' : 'addTemplateRunners: missing linkToNode: cannot bind to expression'
+    'ATR_01' : 'addTemplateRunners: missing exprNode: cannot bind to expression'
 export const ATR_BAD_EXPR_TYPE = BUILD_PROD ?
     'ATR_02' : 'addTemplateRunners: cannot two-way bind to non-simple expression'
 export const ATR_INVALID_EXPR = BUILD_PROD ?
     'ATR_03' : 'addTemplateRunners: cannot two way bind to non expression'
+export const ATR_READ_ONLY = BUILD_PROD ?
+    'ATR_04' : 'addTemplateRunners: cannot two-way bind on read-only nodes:'
 
 export const AS_INVALID_PROP = BUILD_PROD ?
     'AS_01' : 'addSetter: invalid prop:'
@@ -68,11 +70,19 @@ export const IM_BAD_MODIFIER = BUILD_PROD ?
 export const IV_INVALID_NAME = BUILD_PROD ?
     'IV_01' : 'initView: only "simple" vars are supported: invalid varName:'
 
-export const UV_INVALID_DATA = BUILD_PROD ?
-    'UV_01' : 'updateData: view data must have "html" and "state" properties, got:'
+export const UV_NO_ELM = BUILD_PROD ?
+    'UV_01' : 'updateView: viewElm param is empty/missing'
+export const UV_INVALID_NODE = BUILD_PROD ?
+    'UV_02' : 'updateView: viewNode is missing or invalid'
+export const UV_INVALID_HTML = BUILD_PROD ?
+    'UV_03' : 'updateView: second param (html) must be of type string'
+export const UV_NO_FUN = BUILD_PROD ?
+    'UV_04' : 'updateView: internal: no update function'
 
 export const CLE_BIND_NO_NODE = BUILD_PROD ?
-    'CLE_01' : 'List.createAndLinkElement: missing linkToNode: cannot bind to expression'
+    'CLE_01' : 'List.createAndLinkElement: missing exprNode: cannot bind to expression'
+export const CLE_READ_ONLY = BUILD_PROD ?
+    'CLE_02' : 'List.createAndLinkElement: cannot two-way bind on read-only nodes:'
 
 export const MM_INVALID_VAR_NAME = BUILD_PROD ?
     'MM_01' : RApi.MODEL + ': only "simple" vars are supported: invalid varName:'
@@ -133,3 +143,5 @@ export const EX_TEMPLATE_NOT_FOUND = BUILD_PROD ?
     'TEMPLATE_NOT_FOUND' : 'applyTemplate: template not found, templateId:'
 export const EX_BAD_STATE = BUILD_PROD ?
     'BAD_STATE' : 'initial state must be an object'
+export const EX_BAD_ROOT = BUILD_PROD ?
+    'NO_ROOT_NODE' : 'root node is missing or not an element'
