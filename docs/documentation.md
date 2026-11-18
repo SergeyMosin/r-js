@@ -24,7 +24,7 @@ No virtual DOM. No build step required. No JSX. Expressions are plain JavaScript
   <div id="app" hidden>
     <h1>Hello {{name}}!</h1>
     <p>Count: {{count}}</p>
-    <button data-l:click="{{count++}}">Increment</button>
+    <button data-on:click="{{count++}}">Increment</button>
   </div>
 </body>
 </html>
@@ -65,7 +65,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 
 | Directive              | Purpose                                  | Example                                                                    |
 | ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
-| `data-l:event`         | Event listener                           | `data-l:click="{{count++}}"`<br>`data-l:async:click="{{await fetch()}}"`   |
+| `data-on:event`         | Event listener                           | `data-on:click="{{count++}}"`<br>`data-on:async:click="{{await fetch()}}"`   |
 | `data-m`               | Two-way model binding                    | `<input data-m="{{message}}">`                                             |
 | `data-if`              | Conditional rendering (if)               | `<div data-if="{{show}}">…</div>`                                          |
 | `data-elif`            | Conditional rendering (else if)          | `<div data-elif="{{someVar===123}}">…</div>`                               |
@@ -88,15 +88,15 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-shadow`          | Enable Shadow DOM for component          | `<r-comp data-shadow>` or `data-shadow="section"`                          |
 | `data-v`               | Render dynamic view object               | `<div data-v="{{currentView}}"></div>`                                     |
 
-### Event Listeners – `data-l:*`
+### Event Listeners – `data-on:*`
 
 Special variable: `$evt`
 
 ```html
-<button data-l:click="{{count += $evt.shiftKey ? 10 : 1}}">+1 or +10</button>
+<button data-on:click="{{count += $evt.shiftKey ? 10 : 1}}">+1 or +10</button>
 ```
 
-Async listeners use `data-l.async:*`
+Async listeners use `data-on.async:*`
 
 ### Model Binding – `data-m`
 
@@ -150,7 +150,7 @@ Elements are **physically removed/inserted** from DOM.
 <ul>
   <li data-f="{{todos => todo, idx}}">
     {{idx+1}}. {{todo.title}}
-    <button data-l:click="{{todos.splice(idx,1)}}">×</button>
+    <button data-on:click="{{todos.splice(idx,1)}}">×</button>
   </li>
 </ul>
 ```
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 - Props: `data-pr:` (read-only / deep lock), `data-p:` (two-way, single variable only)
 - Scoped prop initializer: `data-ps:` (one-shot, non-reactive in parent scope after initialization)
 - Events: `$r.emit("save", payload, bubbles?)`
-- Catch: `data-l:save="{{savedData = $evt.detail}}"`
+- Catch: `data-on:save="{{savedData = $evt.detail}}"`
 - Recursion can be enabled with `data-can-recurse`
 
 **Shadow DOM support**
@@ -231,6 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ```js
 $r.emit(name, payload?, bubbles?)
 $r.watch("{{expr}}", callback, immediate?)
+$r.watch("{{ [a,b,c] }}", ([a,b,c]) => …, false)
 $r.unwatch("{{expr}}", callback)
 $r.attach(templateId, anchorElement, state, readyCallback?)
 $r.detach(templateId)
@@ -297,7 +298,7 @@ Ideal for lightweight SPA / router views.
 
 ```html
 <main data-v="{{$r.currentView}}"></main>
-<button data-l.click="{{$r.updateView($r.currentView,'Some <b>HTML</b> and {{someVar}}',{someVar:'CSS'})}}">Update View</button>
+<button data-on.click="{{$r.updateView($r.currentView,'Some <b>HTML</b> and {{someVar}}',{someVar:'CSS'})}}">Update View</button>
 ```
 
 **Security note**: only use trusted HTML.

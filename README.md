@@ -23,7 +23,7 @@
 ```html
 <div id="app" hidden>
   Count: {{count}}
-  <button data-l:click="{{count++}}">+</button>
+  <button data-on:click="{{count++}}">+</button>
 </div>
 
 <script src="r.min.js"></script>
@@ -41,7 +41,7 @@
 - Reactive plain objects (deep mutation tracking)
 - `{{ expression }}` text interpolation (plain JS)
 - Two-way binding with `data-m`
-- Event listeners `data-l:click`, `data-l:keyup`, etc.
+- Event listeners `data-on:click`, `data-on:keyup`, etc.
 - Conditional rendering `data-if` /`data-elif`/`data-else`
 - List rendering `data-f` (with automatic updates on array mutation)
 - Partial list rendering `data-f.start` / `data-f.len`
@@ -91,7 +91,7 @@
 
 ### Status
 
-**v0.10.0 - API Testing (closed beta)**
+**v0.11.0 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 

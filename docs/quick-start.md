@@ -53,7 +53,7 @@ You now have a reactive app.
 ```html
 <div id="app" hidden>
   Count: {{count}}
-  <button data-l:click="{{count++}}">+</button>
+  <button data-on:click="{{count++}}">+</button>
 </div>
 
 <script>
@@ -76,8 +76,8 @@ You now have a reactive app.
   Styled Text
 </div>
 
-<button data-l:click="{{color='red'}}">Red</button>
-<button data-l:click="{{size+=2}}">Bigger</button>
+<button data-on:click="{{color='red'}}">Red</button>
+<button data-on:click="{{size+=2}}">Bigger</button>
 ```
 
 State drives **everything**.
@@ -108,7 +108,7 @@ No glue code required.
   Hidden
 </div>
 
-<button data-l:click="{{show=!show}}">Toggle</button>
+<button data-on:click="{{show=!show}}">Toggle</button>
 ```
 
 * Elements are removed from the DOM when false
@@ -124,7 +124,7 @@ No glue code required.
   </li>
 </ul>
 
-<button data-l:click="{{items.push('new item')}}">
+<button data-on:click="{{items.push('new item')}}">
   Add
 </button>
 ```
@@ -138,7 +138,7 @@ Arrays are fully reactive.
 ```html
 <template id="counter">
   Count: {{count}}
-  <button data-l:click="{{count++}}">+</button>
+  <button data-on:click="{{count++}}">+</button>
 </template>
 
 <r-counter data-p:count="{{count}}"></r-counter>
@@ -154,10 +154,10 @@ Arrays are fully reactive.
 
 ```html
 <template id="child">
-  <button data-l:click="{{$r.emit('done', 1)}}">Done</button>
+  <button data-on:click="{{$r.emit('done', 1)}}">Done</button>
 </template>
 
-<r-child data-l:done="{{total += $evt.detail}}"></r-child>
+<r-child data-on:done="{{total += $evt.detail}}"></r-child>
 ```
 
 Use events for **child → parent** communication.

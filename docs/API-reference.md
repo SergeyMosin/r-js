@@ -68,11 +68,11 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 
 ## 3. Directives (HTML Attributes)
 
-### `data-l:*` — Event Listener
+### `data-on:*` — Event Listener
 
 ```html
-<button data-l:click="{{count++}}">
-<button data-l.async:click="{{await fn()}}">
+<button data-on:click="{{count++}}">
+<button data-on.async:click="{{await fn()}}">
 ```
 
 #### Special Variables
