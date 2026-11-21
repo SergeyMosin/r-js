@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Error boundary — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <div data-err="{{error = $err.message}}">
+      Data: {{someNotExistingVar.toString()}}
+    </div>
+    <p>Caught: {{error}}</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      R(app, { error: '' });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component events — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.min.js"></script>
+</head>
+
+<body>
+
+  <template id="save-button">
+    <button data-on:click="{{$r.emit('save', label)}}">
+      Save {{label}}
+    </button>
+  </template>
+
+  <template id="save-button-wrapped" data-wrap="button"
+            data-on:click="{{$r.emit('save', label+'_wrapped')}}">
+    Save {{label}}_wrapped
+  </template>
+
+  <div id="app" hidden>
+
+    <p>Last saved: {{saved}}</p>
+
+    <r-save-button data-on:save="{{saved = $evt.detail}}"
+                   data-pr:label="{{buttonLabel}}"></r-save-button>
+    <r-save-button-wrapped data-on:save="{{saved = $evt.detail}}"
+                           data-pr:label="{{buttonLabel}}"></r-save-button-wrapped>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const app = document.getElementById('app');
+      R(app, { buttonLabel: 'draft', saved: 'nothing' });
+    });
+  </script>
+
+</body>
+
+</html>

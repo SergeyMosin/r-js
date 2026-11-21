@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hydration — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <h1 h:text-content="{{title}}">Server-rendered title</h1>
+    <p h.num:text-content="{{count}}">42</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+
+      // The 'title' and 'count' props are extracted from the pre-rendered element content and added to the state automatically.
+      const state = R(app, {});
+
+      state.title += '.';
+      state.count++;
+
+      console.log('Hydrated state:', state.title, state.count);
+    });
+  </script>
+
+</body>
+
+</html>

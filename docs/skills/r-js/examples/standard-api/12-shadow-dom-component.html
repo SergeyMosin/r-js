@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shadow DOM component — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <template id="notice">
+      <p>Notice: {{message}}</p>
+    </template>
+
+    <r-notice data-shadow data-pr:message="{{text}}"></r-notice>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      R(app, { text: 'Rendered inside the component shadow root' });
+    });
+  </script>
+
+</body>
+
+</html>

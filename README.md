@@ -50,35 +50,35 @@
 - Component events via `$r.emit()`
 - Shadow DOM support per component
 - Error boundaries `data-err`
-- Dynamic views `data-v` + `$r.updateView($$.view, html, state)`
+- Dynamic views `data-v` + `$r.updateView($r.view, html, state)`
 - `$r` global + scoped refs & utilities
 - Singleton(reusable) components via `$r.attach()/$r.detach()`
 - `data-exec` / `data-exec.async` per-element hooks
 - Component lifecycle: `create()` / `kill()`
 - SSR friendly hydration from pre-rendered HTML (`data-h:*`)
 - No dependencies
-- Router-agnostic
+- Router-agnostic (Bring Your Own Router)
 
 ---
 
 ### Distribution Notes (release modes)
 
 * `r.min.js` – production build ( smallest size, minimal logging )
-* `r.stg.min.js` – staging build ( verbose logging, see [./src/errors.js](./src/errors.js) )
-* `r.alt.min.js` – alternative API ( if you don't want to type `data-` prefix, and don't care about HTML validation, see [./src/r-api.js](./src/r-api.js) )
+* `r.stg.min.js` – staging build ( verbose logging, see [/src/errors.js](/src/errors.js) )
+* `r.alt.min.js` – alternative API ( if you don't want to type `data-` prefix, and don't care about HTML validation, see [/src/r-api.js](/src/r-api.js) )
 * `r.stg.alt.min.js` – staging build with the alternative API
 
 ---
 
 ### Documentation
 
-* Quick Start Guide - [./docs/quick-start.md](./docs/quick-start.md)
-* Detailed Docs - [./docs/documentation.md](./docs/documentation.md)
-* API Reference - [./docs/API-reference.md](./docs/API-reference.md)
+* Quick Start Guide - [/docs/skills/r-js/references/quick-start.md](/docs/skills/r-js/references/quick-start.md)
+* Detailed Docs - [/docs/skills/r-js/references/documentation.md](/docs/skills/r-js/references/documentation.md)
+* API Reference - [/docs/skills/r-js/references/API-reference.md](/docs/skills/r-js/references/API-reference.md)
   
 **Other refs:**
-* Error Codes (Production Mode)  - [./src/errors.js](./src/errors.js)
-* Alternative API Syntax - [./src/r-api.js](./src/r-api.js)
+* Error Codes (Production Mode)  - [/src/errors.js](/src/errors.js)
+* Alternative API Syntax - [/src/r-api.js](/src/r-api.js)
 
 ---
 
@@ -91,7 +91,7 @@
 
 ### Status
 
-**v0.11.0 - API Testing (closed beta)**
+**v0.11.1 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 

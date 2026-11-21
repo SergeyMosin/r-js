@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic views — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <div view="{{$r.view}}">Default <strong>Info</strong></div>
+    <!-- This a simplification, typically views come from separate files loaded via fetch or similar. Views might even be connected to the "bring your own" router -->
+    <button on:click="{{$r.updateView($r.view, viewHtml, {label: 'details'})}}">
+      Show details
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      R(app, {
+        viewHtml: '<p>View: {{label}}</p>'
+      });
+    });
+  </script>
+
+</body>
+
+</html>

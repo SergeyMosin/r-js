@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Two-way model binding — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <label>
+      Name:
+      <input id="name" model="{{name}}">
+    </label>
+    <p>Hello {{name}}</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      R(app, { name: 'World' });
+    });
+  </script>
+
+</body>
+
+</html>

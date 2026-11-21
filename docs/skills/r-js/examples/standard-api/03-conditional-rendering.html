@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditional rendering — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <p data-if="{{status === 'ready'}}">Ready</p>
+    <p data-elif="{{status === 'loading'}}">Loading {{tick}}</p>
+    <p data-else>Unavailable</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      const state = R(app, { status: 'loading', tick: 5 });
+
+      const intervalId = setInterval(() => {
+        state.tick--;
+        if (state.tick === 0) {
+          state.status = 'ready';
+          clearInterval(intervalId);
+        }
+      }, 1000);
+
+    });
+  </script>
+
+</body>
+
+</html>

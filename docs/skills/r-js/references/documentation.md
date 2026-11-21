@@ -4,7 +4,7 @@
 
 No virtual DOM. No build step required. No JSX. Expressions are plain JavaScript.
 
-## Quick Start
+## Simple App Example
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ const state = R(rootElement, initialStateObject, optionalCreateFn?)
 - All mutations (`state.xxx = …`, `push`, `splice`, etc.) → automatic DOM updates
 - Updates are **synchronous**
 
-**Optional third argument** — initialization function:
+**Optional third argument** — initialization function (can be used to extend `$r` or modify state):
 
 ```js
 R(app, state, (state, $r) => {
@@ -65,7 +65,7 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 
 | Directive              | Purpose                                  | Example                                                                    |
 | ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
-| `data-on:event`         | Event listener                           | `data-on:click="{{count++}}"`<br>`data-on:async:click="{{await fetch()}}"`   |
+| `data-on:event`        | Event listener                           | `data-on:click="{{count++}}"`<br>`data-on:async:click="{{await fetch()}}"` |
 | `data-m`               | Two-way model binding                    | `<input data-m="{{message}}">`                                             |
 | `data-if`              | Conditional rendering (if)               | `<div data-if="{{show}}">…</div>`                                          |
 | `data-elif`            | Conditional rendering (else if)          | `<div data-elif="{{someVar===123}}">…</div>`                               |
@@ -78,11 +78,12 @@ Any text node can contain **one or more** `{{ js-expression }}` parts.
 | `data-p:prop`          | Component prop (read-write)              | `<r-input data-p:value="{{form.name}}">`                                   |
 | `data-pr:prop`         | Component prop (read-only)               | `<r-card data-pr:title="{{post.title}}">`                                  |
 | `data-ps:prop`         | Scoped prop initializer (one-shot)       | `<div data-if={{cond}} data-ps:some-prop="initial value">`                 |
+| `data-wrap`            | Auto wrap multi-element templates        | `<template id="btn" data-wrap="button">...</template>`                     |
 | `data-r`               | Register DOM element ref on `$r`         | `<div data-r="{{$r.modal}}">…</div>`                                       |
-| `data-no-refs`         | Block access to global `$r` refs         | `<r-comp data-no-refs>`                                                    |
+| `data-no-refs`         | Block template access to global `$r` refs| `<r-comp data-no-refs>`                                                    |
 | `data-h:*`             | Hydrate / extract state from HTML        | `<span data-h.n:text-content="{{count}}">42</span>`                        |
 | `data-s:*`             | Attribute Setter (one-way)               | `<button data-s:disabled="{{isDisabled}}">Some Button</button>`            |
-| `data-src`             | For dynamic `src` values                 | `<img data-src="{{imageUrl}}"/>`                                           |
+| `data-src`             | For dynamic `src` value replacement      | `<img data-src="{{imageUrl}}"/>`                                           |
 | `data-exec`            | Execute code before children             | `data-exec="{{status='loading'}}"`                                         |
 | `data-err`             | Error boundary                           | `<div data-err="{{error=$err.message}}">{{risky()}}</div>`                 |
 | `data-shadow`          | Enable Shadow DOM for component          | `<r-comp data-shadow>` or `data-shadow="section"`                          |
@@ -320,7 +321,7 @@ Scripts of `type="module"` are supported inside templates and views
 ```html
 <template id="my-component" data-wrap="div">
   <script type="module">
-    import * as external from '@/module.js'
+    import * as external from 'path/to/module.js'
     // or import * as external from 'https://domain.tld/module.js'
     // or using import maps: import * as external from 'my-module'
     export function create(state, $r) {
@@ -332,9 +333,6 @@ Scripts of `type="module"` are supported inside templates and views
 
 <r-my-component></r-my-component>
 ```
-
-- the `@` prefix is automatically resolved to `self.location.origin` (when import maps are not used)
-
 
 ## Security & Responsibility
 

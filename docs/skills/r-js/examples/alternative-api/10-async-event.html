@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Async event handler — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <p>Status: {{status}}</p>
+    <button on.async:click="{{status=await $r.load()}}">Load</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+      const state = R(app, {
+        status: 'idle'
+      },
+        // using "create" callback 
+        (state, $r) => {
+
+          // use $r global to functions to keep the state "clean"
+          $r.load = async () => {
+
+            state.status = 'loading';
+
+            return await new Promise(resolve => setTimeout(() => {
+              resolve('loaded');
+            }, 500));
+          }
+
+        });
+
+    });
+  </script>
+
+</body>
+
+</html>

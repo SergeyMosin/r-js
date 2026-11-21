@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Components and props — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <!-- if a template has more than one child it has to have wrap="tag" attr -->
+    <template id="greeting" wrap="div">
+      <p>Hello {{name}}!</p>
+      <slot></slot>
+    </template>
+
+    <r-greeting p:name="{{person.name}}">
+      <small>Welcome to the example.</small>
+    </r-greeting>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const app = document.getElementById('app');
+      R(app, { person: { name: 'Charles' } });
+
+    });
+  </script>
+
+</body>
+
+</html>

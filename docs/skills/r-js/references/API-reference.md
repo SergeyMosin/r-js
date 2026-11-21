@@ -12,7 +12,7 @@ Initializes an r-js application.
 
 ```js
 const state = R(rootElement, initialState, (state, $r) => {
-  // initialization logic
+  // optional initialization logic
 })
 ```
 
@@ -20,17 +20,40 @@ const state = R(rootElement, initialState, (state, $r) => {
 
 ### Parameters
 
-| Name           | Type                             | Description                             |
-| -------------- | -------------------------------- | --------------------------------------- |
-| `root`         | `HTMLElement`                    | Application root boundary               |
-| `initialState` | `Object`                         | Reactive state object                   |
-| `create`       | `(state, $r) => void` (optional) | Initialization hook used to extend `$r` |
+| Name           | Type                             | Description                                                     |
+| -------------- | -------------------------------- | --------------------------------------------------------------- |
+| `root`         | `HTMLElement`                    | Application root element                                       |
+| `initialState` | `Object`                         | Initial state object                                        |
+| `create`       | `(state, $r) => void` (optional) | Initialization hook used to extend `$r` or add props to `state` |
 
 ---
 
 ### Returns
 
 * **`Proxy<Object>`** — reactive state object
+
+### JSDoc for `R`
+
+```js
+/**
+ * @callback R
+ * @template {Record<string, any>} T
+ * @param {Element} elm
+ * @param {T} state
+ * @param {(state: T, $r: any) => void} [create]
+ * @returns {T}
+ */
+```
+
+### TypeScript declaration for `R`
+
+```TypeScript
+declare function R<T extends Record<string, any>>(
+  elm: Element,
+  state: T,
+  create?: (state: T, $r: any) => void
+): T;
+```
 
 ---
 
@@ -39,8 +62,8 @@ const state = R(rootElement, initialState, (state, $r) => {
 * All state mutations are **reactive**
 * DOM updates are **synchronous and deterministic**
 * `$r` is a **runtime-owned global utility object**
-* `$r` can **only be extended** inside the `create` function
-* Components receive **scoped copies** of `$r`
+* `$r` can **be extended** inside the `create` function
+* Components receive **scoped copies** of `$r` and can further extend it
 
 ---
 
@@ -62,7 +85,7 @@ Variables whose names begin with an `_`(underscore) are special and **non-reacti
 ```html
 {{ someArray.reduce((_acc, _val) => _acc + _val, 0) }}
 ```
-In the example above `_acc` and `_val` are local variables. If params/vars to the `reduce` function were not prefixed with `_`(underscore), this expression would throw an error, because `r-js` would look for the vars in the state object (reactive scope).
+In the example above `_acc` and `_val` are localized variables. If params/vars to the `reduce` function were not prefixed with `_`(underscore), this expression would throw an error, because `r-js` would look for the vars in the state object (reactive scope).
 
 ---
 
@@ -73,6 +96,7 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 ```html
 <button data-on:click="{{count++}}">
 <button data-on.async:click="{{await fn()}}">
+<button data-on:custom="{{someVar = $evt.detail}}">
 ```
 
 #### Special Variables
@@ -136,21 +160,13 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 ### `data-if` / `data-elif` / `data-else` — Conditional Rendering
 
 ```html
-<div data-if="{{condition}}"></div>
-<div data-elif="{{otherCondition}}"></div>
-<div data-else></div>
+<div data-if="{{condition}}">...</div>
+<div data-elif="{{otherCondition}}">...</div>
+<div data-else>...</div>
 ```
 
 * Elements are **removed from the DOM** when `condition` is false
 * `data-else` / `data-elif` must be **next siblings**
-
-#### Scoped/local Props `data-ps:*`
-
-```html
-<div data-if="{{condition}}" data-ps:my-var="initial value">
-  "myVar" is only available inside of this "if" block: {{myVar}}
-</div>
-```
 
 ---
 
@@ -165,8 +181,6 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 ```
 {{ array => alias [, index] }}
 ```
-
-#### Rules
 
 * Alias is **read-write**
 * Array mutations are reactive
@@ -193,7 +207,7 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 
 ---
 
-### `data-pr` — Component Props (Read-Only)
+### `data-pr:*` — Component Props (Read-Only)
 
 ```html
 <r-comp data-pr:text="{{text}}">
@@ -202,20 +216,31 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 * Props are **locked**
 * Deep state props are also locked
 * Child → parent mutation is blocked
+* Can be used to force a **one-way data flow** 
 
 ---
 
-### `data-p` — Component Props (Read-Write)
+### `data-p:*` — Component Props (Read-Write)
 
 ```html
 <r-comp data-p:text="{{text}}">
 ```
 
-#### Rules
-
 * Only **single variables** are writable
 * Multi-expression props fall back to **read-only**
-* Enables child ↔ parent synchronization
+* Enables child ↔ parent synchronization (without using `$r.emit()`)
+
+---
+
+### `data-ps:*` — Scoped/local Props
+
+```html
+<div data-if="{{condition}}" data-ps:my-var="initial value">
+  "myVar" is only available inside of this "if" block: {{myVar}}
+</div>
+```
+
+* Scoped to the current block (do not affect parent scope)
 
 ---
 
@@ -228,7 +253,7 @@ In the example above `_acc` and `_val` are local variables. If params/vars to th
 * Registers element proxy on `$r`
 * Scoped per component
 * Local(component) refs **shadow** global ones
-* Advanced: use `this.__raw` to access the non-proxied DOM element
+* Advanced: use `this.valueOf()` to access the non-proxied DOM element
 
 ---
 
@@ -250,6 +275,7 @@ Extracts state from pre-rendered HTML.
 ```html
 <div data-h:text-content="{{text}}">hello</div>
 ```
+* in this case `state.text` will be set to "hello", if `state.text` does not exist it will be created automatically. 
 
 #### Type Casting Modifiers
 
@@ -281,7 +307,7 @@ Use `data-src` to set the `src` attribute of an element when the value is **dyna
 
 * Executes **before children**
 * `this` refers to the DOM element Proxy
-* Advanced: use `this.__raw` to access the raw DOM element
+* Advanced: use `this.valueOf()` to access the raw DOM element
 
 #### Async Variant
 
@@ -289,7 +315,7 @@ Use `data-src` to set the `src` attribute of an element when the value is **dyna
 <div data-exec.async="{{await fn()}}">
 ```
 
-⚠ **Advanced escape hatch** — use sparingly
+⚠ **This is an advanced escape hatch** — use sparingly
 
 ---
 
@@ -317,6 +343,8 @@ Use `data-src` to set the `src` attribute of an element when the value is **dyna
 <r-comp data-shadow></r-comp>
 ```
 
+* Works on both regular Element and r-components.
+
 #### Customize Host (tag|style)
 
 ```html
@@ -328,18 +356,11 @@ data-shadow="span|display:contents"
 ### `data-v` — View Renderer
 
 ```html
-<div data-v="{{viewObj}}"></div>
+<div data-v="{{$r.myView}}">Default <strong>HTML</strong></div>
 ```
 
-#### View Object Shape
+Used in conjunction with `$r.updateView($r.myView, html, state)` to render/update a view.
 
-```js
-{
-  html: string,
-  state: object,
-  readOnly?: boolean
-}
-```
 
 ⚠ **Trusted HTML only**
 r-js performs **no sanitization**
@@ -364,17 +385,50 @@ Example:
 
 ---
 
+### `data-wrap` — Multiple root template wrapper
+
+```html
+<template id="btn" data-wrap="button">Action: {{text}}</template>
+
+<r-btn data-pr:text="update text"></r-btn>
+```
+
+* `r-btn` will be rendered as a `<button>Action: update text</button>` element.
+
+---
+
 ## 5. `$r` Global Object
 
-`$r` is a **runtime-owned utility and ref container**.
+`$r` is a **runtime-owned utility and reference container**. Use it to add functions, constants, and references that can be accessed from HTML markup.
 
-### Extending `$r` (Initialization Only)
+Adding functions to `$r` is preferred over adding them to the `state` object. This is the idiomatic way to extend functionality while keeping `state` clean and focused on data only.
+
+### Extending `$r` (at initialization)
 
 ```js
 R(app, state, (state, $r) => {
   $r.log = console.log
   $r.math = Math
 })
+```
+
+### Extending `$r` (per component)
+
+```html
+<template id="my-adder">
+  <script>
+    function create(state, $r){
+      $r.add = (a, b) => {
+        return a + b
+      }
+    }
+  </script>
+  <div>
+    Sum: {{$r.add(v, 2)}}
+  </div>
+</template>
+
+<r-my-adder data-pr:v={{40}}></r-my-adder>
 ```
 
 ---
@@ -412,6 +466,35 @@ const watchRemoved = $r.unwatch("{{someVar}}", someCallback)
 
 ---
 
+#### `$r.attach(templateId, anchorElement, state, readyCallback?):object`
+
+```js
+const stateProxy = $r.attach('some-id', document.getElementById('my_anchor'), {data:'abc'});
+```
+* Mostly used to manage singleton/re-usable elements like popups, dialogs, etc.
+* If `state` is null or undefined the last `state` will be used
+* The singleton elements is attached **after** the anchorElement
+
+---
+
+#### `$r.detach(templateId):boolean`
+
+```js
+const isDetached = $r.detach('some-id');
+```
+* Detaches (removes) the singleton element from the DOM
+* Returns `true` if the element was detached, `false` otherwise
+* Singleton elements are cached so attach/detach cycle is relatively fast
+
+---
+
+#### `$r.updateView($r.viewElement, html, state?, readOnly?, readyCallback?):stateProxy`
+
+```js
+const state = $r.updateView($r.myView, 'Hello <em>{{name}}</em>!', {name:'World'});
+```
+* Used to manage views like `<div data-v="$r.myView"></div>` 
+
 ### `$r` in Components
 
 * Components receive a **scoped `$r`**
@@ -424,7 +507,7 @@ const watchRemoved = $r.unwatch("{{someVar}}", someCallback)
 
 Defined inside `<template><script>...</script></template>`.
 
-### `create(state, refs)`
+### `create(state, $r)`
 
 Called **before DOM insertion**.
 
@@ -440,7 +523,7 @@ function create(state, $r) {
 
 ---
 
-### `kill(state, refs)`
+### `kill(state, $r)`
 
 Called on **DOM removal**.
 

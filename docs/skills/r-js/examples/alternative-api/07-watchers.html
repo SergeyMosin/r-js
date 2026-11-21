@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Watchers — r-js example</title>
+  <!-- Adjust this path if your r-js distribution is elsewhere. -->
+  <script src="../../../../../dist/r.alt.min.js"></script>
+</head>
+
+<body>
+  <div id="app" hidden>
+    <p>Count: {{count}}</p>
+    <p>Status: {{status}}</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const app = document.getElementById('app');
+
+      const state = R(app, { count: 0, status: 'waiting' }, (state, $r) => {
+        $r.watch('{{count}}', value => {
+          state.status = value > 0 ? 'updated' : 'waiting';
+        });
+      });
+
+      setTimeout(() => state.count++, 1000);
+    });
+  </script>
+
+</body>
+
+</html>
