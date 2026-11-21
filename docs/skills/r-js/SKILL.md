@@ -16,13 +16,24 @@ Use this skill when working on an application that uses **r-js**.
 - Use ordinary JavaScript in `{{ expression }}` bindings. Remember that expressions execute as JavaScript, not as a restricted template language.
 - Do not assume behavior that is not documented in the supplied references. If an API detail is unclear or references disagree, call out the uncertainty and ask for or inspect the implementation rather than inventing semantics.
 
+
+## NPM Installation Instruction (if requested by the user)
+
+1. **Check existing installation:** Inspect `package.json` to see if `@rjs-dev/core` is already listed under `dependencies`. If present, skip installation.
+2. **Detect package manager:** Check the project root lockfile (`pnpm-lock.yaml`, `yarn.lock`, `bun.lockb`, or `package-lock.json`) and run the matching non-interactive install command:
+   * **npm:** `npm i @rjs-dev/core`
+   * **pnpm:** `pnpm add @rjs-dev/core`
+   * **yarn:** `yarn add @rjs-dev/core`
+   * **bun:** `bun add @rjs-dev/core`
+
+
 ## API Variants
 
 r-js supports two HTML attribute API variants:
 - Standard API: `data-` prefixed attributes.
-- Alternative API: attributes without the `data-` prefix.
+- Alternative API: attributes without the `data-` prefix and some attribute name changes.
 
-Both APIs use the same underlying framework, state model, JavaScript expressions, component system, and runtime utilities.
+Both APIs use the same underlying framework, state model, JavaScript expressions, component system, and runtime utilities. Standard API to Alternative API attribute mapping is available at [references/alternative-API.md](references/alternative-API.md)
 
 ### API Selection
 
@@ -32,12 +43,17 @@ Both APIs use the same underlying framework, state model, JavaScript expressions
 4. If the variant cannot be determined, ask before generating framework-specific markup.
 5. Never mix Standard and Alternative API attributes in the same application.
 
-### References
+#### API selection via `import` ( when installed with `npm` )
 
-- Standard API: references/API-reference.md
-- Alternative API: references/alternative-API.md
-
-The Alternative API reference documents the attribute-name differences. All other framework behavior follows the Standard API documentation unless explicitly stated otherwise.
+* **Standard API:**
+  ```js
+  import R from '@rjs-dev/core';
+  ```
+* **Alternative API:**
+  ```js
+  import R from '@rjs-dev/core/alt';
+  ```
+* **Consistency constraint:** Do NOT mix `@rjs-dev/core` and `@rjs-dev/core/alt` within the same project/file
 
 
 ## Reference workflow
@@ -50,6 +66,7 @@ Read the relevant reference before writing or changing framework-specific code:
 | Check exact API signatures, directive syntax, modifiers, special variables, and component behavior | [references/API-reference.md](references/API-reference.md) |
 | Lookup Standard API to Alternative API mapping | [references/alternative-API.md](references/alternative-API.md) |
 | Quick overview of the framework (Quick Start Guide) | [references/quick-start.md](references/quick-start.md) |
+| TypeScript declaration file | [references/r.d.ts](references/r.d.ts) |
 
 Use the API Reference as the first stop for exact syntax and API contracts. Use the detailed Documentation for examples and usage context. The README is an overview, not a substitute for the API contract.
 

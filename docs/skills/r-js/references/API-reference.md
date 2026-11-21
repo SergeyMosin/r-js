@@ -16,8 +16,6 @@ const state = R(rootElement, initialState, (state, $r) => {
 })
 ```
 
----
-
 ### Parameters
 
 | Name           | Type                             | Description                                                     |
@@ -26,41 +24,16 @@ const state = R(rootElement, initialState, (state, $r) => {
 | `initialState` | `Object`                         | Initial state object                                        |
 | `create`       | `(state, $r) => void` (optional) | Initialization hook used to extend `$r` or add props to `state` |
 
----
 
 ### Returns
 
 * **`Proxy<Object>`** — reactive state object
 
-### JSDoc for `R`
-
-```js
-/**
- * @callback R
- * @template {Record<string, any>} T
- * @param {Element} elm
- * @param {T} state
- * @param {(state: T, $r: any) => void} [create]
- * @returns {T}
- */
-```
-
-### TypeScript declaration for `R`
-
-```TypeScript
-declare function R<T extends Record<string, any>>(
-  elm: Element,
-  state: T,
-  create?: (state: T, $r: any) => void
-): T;
-```
-
----
-
 ### Notes
 
 * All state mutations are **reactive**
 * DOM updates are **synchronous and deterministic**
+* TypeScript declaration file: [r.d.ts](./r.d.ts)
 * `$r` is a **runtime-owned global utility object**
 * `$r` can **be extended** inside the `create` function
 * Components receive **scoped copies** of `$r` and can further extend it

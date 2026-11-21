@@ -1,0 +1,39 @@
+{
+    "name": "@rjs-dev/core",
+    "version": "0.11.3",
+    "description": "r-js is a state-first, no-build, data-driven, standards-based JavaScript mini framework",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/r.d.ts",
+            "import": "./dist/r.min.mjs"
+        },
+        "./alt": {
+            "types": "./dist/r.d.ts",
+            "import": "./dist/r.alt.min.mjs"
+        },
+        "./stg": {
+            "types": "./dist/r.d.ts",
+            "import": "./dist/r.stg.min.mjs"
+        },
+        "./stg-alt": {
+            "types": "./dist/r.d.ts",
+            "import": "./dist/r.stg.alt.min.mjs"
+        }
+    },
+    "files": [
+        "dist/*.mjs",
+        "dist/r.d.ts",
+        "README.md",
+        "COPYRIGHT.txt"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SergeyMosin/r-js.git"
+    },
+    "author": "Sergey Mosin <sergey@srgdev.com> (https://srgdev.com)",
+    "license": "SEE LICENSE IN COPYRIGHT.txt"
+}

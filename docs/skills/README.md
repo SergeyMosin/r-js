@@ -12,7 +12,8 @@ skills/
     │   ├── API-reference.md
     │   ├── alternative-API.md
     │   ├── documentation.md
-    │   └── quick-start.md
+    │   ├── quick-start.md
+    │   └── r.d.ts
     └── examples/
         ├── standard-api/
         │   ├── 01-basic-reactivity.html

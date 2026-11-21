@@ -36,6 +36,19 @@
 
 ---
 
+### Installation
+
+```bash
+npm i @rjs-dev/core
+```
+
+#### Import variants
+
+* Standard API: `import R from '@rjs-dev/core'`
+* Alternative API: `import R from '@rjs-dev/core/alt'`
+
+---
+
 ### Features
 
 - Reactive plain objects (deep mutation tracking)
@@ -79,6 +92,7 @@
 **Other refs:**
 * Error Codes (Production Mode)  - [/src/errors.js](/src/errors.js)
 * Alternative API Syntax - [/src/r-api.js](/src/r-api.js)
+* TypeScript declaration file - [/dist/r.d.ts](/dist/r.d.ts)
 * r.js SKILL.md - [/docs/skills/r-js/SKILL.md](/docs/skills/r-js/SKILL.md)
 * Skill install instructions - [/docs/skills/README.md](/docs/skills/README.md) 
 
@@ -93,7 +107,7 @@
 
 ### Status
 
-**v0.11.2 - API Testing (closed beta)**
+**v0.11.3 - API Testing (closed beta)**
 
 API and features are nearly finalized.
 
